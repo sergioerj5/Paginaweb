@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Vuelos - VivaAerobus</title>
+    <style>
+    h1 { color: green; }
+  </style>
+    <style>
+      /* Estilos para el formulario */
+      form {
+        width: 80%;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: bold;
+      }
+      input[type="text"],
+      input[type="date"] {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+      }
+      input[type="submit"] {
+        background-color: #ff9800;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      input[type="submit"]:hover {
+        background-color: #f57c00;
+      }
+      header nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      header nav ul li {
+        float: right;
+        display: inline-block;
+        margin-left: 10px;
+      }
+      header nav ul li:first-child {
+        float: none;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="#">Atención al cliente</a></li>
+          <li><a href="#">Ofertas</a></li>
+          <li><a href="#">Destinos</a></li>
+          <li><a href="#">Vuelos</a></li>
+          <li><a href="#">Inicio</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <footer>
+
+      <h1>Reserva tu vuelo</h1>
+
+      </footer>
+      <form>
+        <label for="origen">Origen:</label>
+        <input required type="text" id="origen" name="origen">
+        <label for="destino">Destino:</label>
+        <input required type="text" id="destino" name="destino">
+        <label for="fecha-salida">Fecha de salida:</label>
+        <input required type="date" id="fecha-salida" name="fecha-salida">
+        <label for="fecha-regreso">Fecha de regreso:</label>
+        <input required type="date" id="fecha-regreso" name="fecha-regreso">
+        <input type="submit" value="Buscar vuelos">
+      </form>
+    </main>
+    <footer>
+    </footer>
+  </body>
+</html>
