@@ -29,8 +29,6 @@
 
 		</footer>
 		<form>
-			<label for="origen">Origen:</label>
-			<input required type="text" id="origen" name="origen">
 			<label for="destino">Destino:</label>
 			<input required type="text" id="destino" name="destino">
 			<label for="fecha-salida">Fecha de salida:</label>
@@ -38,8 +36,16 @@
 			<label for="fecha-regreso">Fecha de regreso:</label>
 			<input required type="date" id="fecha-regreso" name="fecha-regreso">
 			<input type="submit" value="Buscar vuelos">
+
 			
-			<select option="origen" id="origen"></select>
+			<select name="ciudades" id="ciudades">
+				<option value="Cancun">Cancun</option>
+				<option value="Merida">Merida</option>
+				<option value="Veracruz">Veracruz</option>
+				<option value="Campeche">Campeche</option>
+				<option value="Villahermosa">Villahermosa</option>
+				<option value="Chetumal">Chetumal</option>
+			</select>
 
 
 
