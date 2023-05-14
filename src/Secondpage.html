@@ -6,81 +6,104 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="/dist/output.css" rel="stylesheet">
-	<!-- <link rel="stylesheet" href="../estilos.css"> -->	
+	<!-- <link rel="stylesheet" href="../estilos.css"> -->
 	<title>Document</title>
+	<style>
+		html,
+		body {
+			height: 100%;
+		}
+	</style>
 </head>
 
-<body>
-	<header>
-	
-		<nav>
-			<ul>
-				<li><a href="#">Atención al cliente</a></li>
-				<li><a href="#">Ofertas</a></li>
-				<li><a href="#">Destinos</a></li>
-				<li><a href="#">Vuelos</a></li>
-				<li><a href="#">Inicio</a></li>
-			</ul>
+<body class="flex flex-col min-h-screen">
+	<header class="flex flex-row p-4 max-w-screen justify-between items-center ">
+		<nav class="flex ml-12 ">
+			<a href="#" class="a-primary">Atención al cliente</a>
+			<a href="#" class="a-primary">Ofertas</a>
+			<a href="#" class="a-primary">Destinos</a>
+			<a href="#" class="a-primary">Vuelos</a>
+			<a href="#" class="a-primary">Inicio</a>
 		</nav>
 	</header>
-	<main>
-		<footer>
-			<h1>Reserva tu vuelo</h1>
-		</footer>
-		<form>
-			<label for="origen">Origen</label>
-			<select name="ciudades" id="ciudades">
-				<option value="Cancun">Cancun</option>
-				<option value="Merida">Merida</option>
-				<option value="Veracruz">Veracruz</option>
-				<option value="Campeche">Campeche</option>
-				<option value="Villahermosa"selected>Villahermosa</option>
-				<option value="Chetumal">Chetumal</option>
-				<option value="CD. de México">Cd. de méxico</option>
-				<option value="guadalajara">Guadalajara</option>
-			</select>
-			<label for="destino">Destino:</label>
-			<select name="destino" id="Destinos">
-				<option value="Cancun">Cancun</option>
-				<option value="Merida">Merida</option>
-				<option value="Veracruz">Veracruz</option>
-				<option value="Campeche">Campeche</option>
-				<option value="Villahermosa">Villahermosa</option>
-				<option value="Chetumal">Chetumal</option>
-				<option value="CD. de México">Cd. de México</option>
-				<option value="guadalajara">Guadalajara</option>
-			</select>
-			<label for="tipo_pasajeros">Pasajeros: </label>
-			<select name="tipo-de-pasajeros" id="tipo-de-pasajeros">
-				<option value="Adultos">Adultos</option>
-				<option value="niños">niños</option>
-				<option value="infantes">infantes</option>
-			</select>
+	<main class="flex-grow bg-cover bg-center  items-center justify-center " style="background-image: url('img/Passenger-plane.png');">
+		<section  class="flex  justify-center bg-cover w-full bg-center">
+			<article class=" backdrop-blur-sm bg-white/25 self-center w-fit p-3 m-12 rounded-md">
+				<h1 class="text-5xl  font-extrabold ml-11 mt-11 text-center line-clamp-3 text-gray-900 leading-10 mb-2">
+					Encuentra tu Vuelo
+				</h1>
 
-			<label for="tipo_paquete">Tipo de paquete: </label>
-			<select name="tipo-paquetes" id="tipo-paquetes">
-				<option value="'zero'">Zero</option>
-				<option value="'ligth'">Ligth</option>
-				<option value="'extra'">Extra</option>
-			</select>
-			<label for="tipo_vuelo">Tipo de vuelo: </label>
-			<select name="tipo-de-vuelo" id="Tipo-de-Vuelo">
-				<option value="directo">Directo</option>
-				<option value="escalas">Escalas</option>
-			</select>
-			<label for="fecha-salida">Fecha de salida:</label>
-			<input required type="date" id="fecha-salida" name="fecha-salida">
-			<label for="fecha-regreso">Fecha de regreso:</label>
-			<input required type="date" id="fecha-regreso" name="fecha-regreso">
-			<input type="submit" value="Buscar vuelos">
+				<form class="" action="" method="" class="flex  items-center justify-center">
+					<div class="flex flex-col items-center justify-center bg-white rounded-md p-4">
 
 
-			
+						<div class="flex items-center justify-center">
+							<label for="origen" class="block font-bold mx-2">Origen</label>
+							<select name="ciudades" id="ciudades" data-te-select-init data-te-select-visible-options="8"
+								class="h-9 py-1 m-2 focus:outline-none focus:ring-0 focus:border-morado rounded-md"
+								placeholder="Ubicacion">
+								<option value="Cancun">Cancun</option>
+								<option value="Merida">Merida</option>
+								<option value="Veracruz">Veracruz</option>
+								<option value="Campeche">Campeche</option>
+								<option value="Villahermosa">Villahermosa</option>
+								<option value="Chetumal">Chetumal</option>
+								<option value="CD. de México">Cd. de méxico</option>
+								<option value="guadalajara">Guadalajara</option>
+							</select>
+
+							<label for="destino" class="block font-bold mx-2">Destino:</label>
+							<select name="destino" id="Destinos" data-te-select-init data-te-select-visible-options="8"
+								class="h-9 py-1 m-2 focus:outline-none focus:ring-0 focus:border-morado rounded-md"
+								placeholder="Ubicacion">
+								<option value="Cancun">Cancun</option>
+								<option value="Merida">Merida</option>
+								<option value="Veracruz">Veracruz</option>
+								<option value="Campeche">Campeche</option>
+								<option value="Villahermosa">Villahermosa</option>
+								<option value="Chetumal">Chetumal</option>
+								<option value="CD. de México">Cd. de México</option>
+								<option value="guadalajara">Guadalajara</option>
+							</select>
+
+
+							<label for="tipo_pasajeros" class="block font-bold mx-2">Pasajeros: </label>
+							<select name="tipo-de-pasajeros" id="tipo-de-pasajeros" data-te-select-init
+								data-te-select-visible-options="3"
+								class="h-9 py-1 m-2 focus:outline-none focus:ring-0 focus:border-morado rounded-md"
+								placeholder="Ubicacion">
+								<option value="Adultos">Adultos</option>
+								<option value="niños">niños</option>
+								<option value="infantes">infantes</option>
+							</select>
 
 
 
+							<label for="tipo_vuelo" class="block font-bold mx-2">Tipo de vuelo: </label>
+							<select name="tipo-de-vuelo" id="Tipo-de-Vuelo" data-te-select-init
+								data-te-select-visible-options="3"
+								class="h-9 py-1 m-2 focus:outline-none focus:ring-0 focus:border-morado rounded-md"
+								placeholder="Ubicacion">
+								<option value="directo">Directo</option>
+								<option value="escalas">Escalas</option>
+							</select>
+						</div>
+						<div class="flex items-center justify-center">
 
-		</form>
+							<label for="fecha-salida mr-2" class="block font-bold mx-2">Fecha de salida:</label>
+							<input required type="date" id="fecha-salida" name="fecha-salida" class="rounded-md m-2">
+
+							<label for="fecha-regreso mr-2" class="block font-bold mx-2">Fecha de regreso:</label>
+							<input required type="date" id="fecha-regreso" name="fecha-regreso" class="rounded-md m-2">
+						</div>
+					</div>
+					<div class="flex justify-center items-center">
+						<button class="button-prymary w-48 mt-5">Buscar vuelo</button>
+					</div>
+				</form>
+			</article>
+		</section>
+
 	</main>
 	<footer>
 	</footer>
