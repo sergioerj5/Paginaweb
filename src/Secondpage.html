@@ -5,7 +5,8 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="../estilos.css">
+	<link href="/dist/output.css" rel="stylesheet">
+	<!-- <link rel="stylesheet" href="../estilos.css"> -->	
 	<title>Document</title>
 </head>
 
@@ -24,28 +25,57 @@
 	</header>
 	<main>
 		<footer>
-
 			<h1>Reserva tu vuelo</h1>
-
 		</footer>
 		<form>
-			<label for="destino">Destino:</label>
-			<input required type="text" id="destino" name="destino">
-			<label for="fecha-salida">Fecha de salida:</label>
-			<input required type="date" id="fecha-salida" name="fecha-salida">
-			<label for="fecha-regreso">Fecha de regreso:</label>
-			<input required type="date" id="fecha-regreso" name="fecha-regreso">
-			<input type="submit" value="Buscar vuelos">
-
-			
+			<label for="origen">Origen</label>
 			<select name="ciudades" id="ciudades">
+				<option value="Cancun">Cancun</option>
+				<option value="Merida">Merida</option>
+				<option value="Veracruz">Veracruz</option>
+				<option value="Campeche">Campeche</option>
+				<option value="Villahermosa"selected>Villahermosa</option>
+				<option value="Chetumal">Chetumal</option>
+				<option value="CD. de México">Cd. de méxico</option>
+				<option value="guadalajara">Guadalajara</option>
+			</select>
+			<label for="destino">Destino:</label>
+			<select name="destino" id="Destinos">
 				<option value="Cancun">Cancun</option>
 				<option value="Merida">Merida</option>
 				<option value="Veracruz">Veracruz</option>
 				<option value="Campeche">Campeche</option>
 				<option value="Villahermosa">Villahermosa</option>
 				<option value="Chetumal">Chetumal</option>
+				<option value="CD. de México">Cd. de México</option>
+				<option value="guadalajara">Guadalajara</option>
 			</select>
+			<label for="tipo_pasajeros">Pasajeros: </label>
+			<select name="tipo-de-pasajeros" id="tipo-de-pasajeros">
+				<option value="Adultos">Adultos</option>
+				<option value="niños">niños</option>
+				<option value="infantes">infantes</option>
+			</select>
+
+			<label for="tipo_paquete">Tipo de paquete: </label>
+			<select name="tipo-paquetes" id="tipo-paquetes">
+				<option value="'zero'">Zero</option>
+				<option value="'ligth'">Ligth</option>
+				<option value="'extra'">Extra</option>
+			</select>
+			<label for="tipo_vuelo">Tipo de vuelo: </label>
+			<select name="tipo-de-vuelo" id="Tipo-de-Vuelo">
+				<option value="directo">Directo</option>
+				<option value="escalas">Escalas</option>
+			</select>
+			<label for="fecha-salida">Fecha de salida:</label>
+			<input required type="date" id="fecha-salida" name="fecha-salida">
+			<label for="fecha-regreso">Fecha de regreso:</label>
+			<input required type="date" id="fecha-regreso" name="fecha-regreso">
+			<input type="submit" value="Buscar vuelos">
+
+
+			
 
 
 
