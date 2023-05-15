@@ -10,14 +10,12 @@
 	<title>Pasajeros</title>
 </head>
 <body>
-	<header>
-		<nav>
-			<ul>
-				<li><a href="#">Inicio</a></li>
-				<li><a href="#">Destino</a></li>
-				<li><a href="#">Blog</a></li>
-				<li><a href="#">Contacto</a></li>
-			</ul>
+	<header class="flex flex-row p-4 max-w-screen justify-between items-center backdrop-blur-xl bg-white/25">
+		<nav class="flex ml-12 ">
+			<a href="#" class="a-primary">Inicio</a>
+			<a href="#" class="a-primary">Destino</a>
+			<a href="#" class="a-primary">Blog</a>
+			<a href="#" class="a-primary">Contacto</a>
 		</nav>
 	</header>
 	<main>
@@ -29,34 +27,36 @@
             <h3>
                Información personal
             </h3>
-            <label for="Nombre">Nombre(s): </label>
-            <input type="text" id="Nombre" name="Nombre">
-            <label for="Apellido">Apellido(s): </label>
-            <input type="text" id="Apellido" name="Apellido">
-            <label for="genero">Género: </label>
+            
+            <input class="input-prymary" type="text" id="Nombre" name="Nombre"
+            placeholder = "Ingrese su nombre";>
+            <input class="input-prymary" type="text" id="Apellido" name="Apellido"
+            placeholder = "Ingrese su apellido";>
+            <label for="genero">Género:</label>
             <select name="genero" id="genero">
                 <option value="masculino">Masculino</option>
                 <option value="femenino">Femenino</option>
             </select>
             <label for="nacionalidad">Nacionalidad: </label>
-            <select name="nacionalidad" id="nacionalidad">
-                <option value="mexico">México</option>
-                <option value="usa">Estados Unidos de América</option>
-                <option value="afganistan">Afganistan</option>
-                <option value="albania">Albania</option>
-                <option value="alemania">Alemania</option>
-                <option value="andorra">Andorra</option>
-                <option value="argentina">Argentina</option>
-                <option value="australia">Australia</option>
-                <option value="belice">Belicia</option>
-                <option value="brasil">Brasil</option>
-                <option value="belgica">Bélgica</option>
-                <option value="canada">Canadá</option>
-                <option value="Chile">Chile</option>
-                <option value="colombia">Colombia</option>
+            <select name="nacionalidad" id="nacionalidad" data-te-select-init data-te-select-visible-options="14"
+            class="h-9 py-1 m-2 focus:outline-none focus:ring-0 focus:border-morado rounded-md">
+                <option value="1">México</option>
+                <option value="2">Estados Unidos de América</option>
+                <option value="3">Afganistan</option>
+                <option value="4">Albania</option>
+                <option value="5">Alemania</option>
+                <option value="6">Andorra</option>
+                <option value="7">Argentina</option>
+                <option value="8">Australia</option>
+                <option value="9">Belicia</option>
+                <option value="10">Brasil</option>
+                <option value="11">Bélgica</option>
+                <option value="12">Canadá</option>
+                <option value="13">Chile</option>
+                <option value="14">Colombia</option>
             </select>
             <label for="Fecha de nacimiento">Fecha de nacimiento: </label>
-            <input type="date" name="Fechanac" id="Fechanac">
+            <input class="input-prymary" type="date" name="Fechanac" id="Fechanac">
 		</section>
 
         <section>
@@ -68,9 +68,10 @@
                 <option value="Principal">Principal</option>
             </select>
             <label for="Teléfono">Teléfono: </label>
-            <input type="text" id="Teléfono" name="Teléfono">
+            <input class="input-prymary" type="tel" id="Teléfono" name="Teléfono"
+            placeholder = "Ingrese su número";>
             <label for="correo-contacto">Correo de contacto: </label>
-            <input type="text" id="correo-contacto" name="correo-contacto">
+            <input class="input-prymary" type="email" id="correo-contacto" name="correo-contacto">
 
 
             

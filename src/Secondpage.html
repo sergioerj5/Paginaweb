@@ -2,10 +2,10 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="/dist/output.css" rel="stylesheet">
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link href="/dist/output.css" rel="stylesheet" />
 	<!-- <link rel="stylesheet" href="../estilos.css"> -->
 	<title>Document</title>
 	<style>
@@ -17,25 +17,24 @@
 </head>
 
 <body class="flex flex-col min-h-screen">
-	<header class="flex flex-row p-4 max-w-screen justify-between items-center ">
-		<nav class="flex ml-12 ">
+	<header class="flex flex-row p-4 max-w-screen justify-between items-center">
+		<nav class="flex ml-12">
 			<a href="#" class="a-primary">Inicio</a>
 			<a href="#" class="a-primary">Destino</a>
 			<a href="#" class="a-primary">Blog</a>
 			<a href="#" class="a-primary">Contacto</a>
 		</nav>
 	</header>
-	<main class="flex-grow bg-cover bg-center  items-center justify-center " style="background-image: url('img/img2.jpg');">
-		<section  class="flex  justify-center bg-cover w-full bg-center">
-			<article class=" backdrop-blur-sm bg-white/25 self-center w-fit p-3 m-12 rounded-md">
-				<h1 class="text-5xl  font-extrabold ml-11 mt-11 text-center line-clamp-3 text-gray-900 leading-10 mb-2">
+	<main class="flex-grow bg-cover bg-center items-center justify-center"
+		style="background-image: url('img/img2.jpg')">
+		<section class="flex justify-center bg-cover w-full bg-center">
+			<article class="backdrop-blur-sm bg-white/25 self-center w-fit p-3 m-12 rounded-md">
+				<h1 class="text-5xl font-extrabold ml-11 mt-11 text-center line-clamp-3 text-gray-900 leading-10 mb-2">
 					Encuentra tu Vuelo
 				</h1>
 
-				<form class="" action="" method="" class="flex  items-center justify-center">
-					<div class="flex flex-col items-center justify-center bg-white rounded-md p-4">
-
-
+				<form class="" action="" method="" class="flex items-center justify-center">
+					<div class="flex flex-col items-center justify-center bg-white/25 rounded-md p-4 backdrop-blur-sm">
 						<div class="flex items-center justify-center">
 							<label for="origen" class="block font-bold mx-2">Origen</label>
 							<select name="ciudades" id="ciudades" data-te-select-init data-te-select-visible-options="8"
@@ -45,7 +44,7 @@
 								<option value="2">Merida</option>
 								<option value="3">Veracruz</option>
 								<option value="4">Campeche</option>
-								<option value="5"selected>Villahermosa</option>
+								<option value="5" selected>Villahermosa</option>
 								<option value="6">Chetumal</option>
 								<option value="7">Cd. de México(Todos)</option>
 								<option value="8">Guadalajara</option>
@@ -59,14 +58,14 @@
 								<option value="2">Merida</option>
 								<option value="3">Veracruz</option>
 								<option value="4">Campeche</option>
-								<option value="5"selected>Villahermosa</option>
+								<option value="5" selected>Villahermosa</option>
 								<option value="6">Chetumal</option>
 								<option value="7">Cd. de México(Todos)</option>
 								<option value="8">Guadalajara</option>
 							</select>
 
-
-							<label for="tipo_pasajeros" class="block font-bold mx-2">Pasajeros: </label>
+							<label for="tipo_pasajeros" class="block font-bold mx-2">Pasajeros:
+							</label>
 							<select name="tipo-de-pasajeros" id="tipo-de-pasajeros" data-te-select-init
 								data-te-select-visible-options="3"
 								class="h-9 py-1 m-2 focus:outline-none focus:ring-0 focus:border-morado rounded-md"
@@ -76,9 +75,8 @@
 								<option value="infantes">Niños</option>
 							</select>
 
-
-
-							<label for="tipo_vuelo" class="block font-bold mx-2">Tipo de vuelo: </label>
+							<label for="tipo_vuelo" class="block font-bold mx-2">Tipo de vuelo:
+							</label>
 							<select name="tipo-de-vuelo" id="Tipo-de-Vuelo" data-te-select-init
 								data-te-select-visible-options="3"
 								class="h-9 py-1 m-2 focus:outline-none focus:ring-0 focus:border-morado rounded-md"
@@ -88,12 +86,12 @@
 							</select>
 						</div>
 						<div class="flex items-center justify-center">
-
 							<label for="fecha-salida mr-2" class="block font-bold mx-2">Fecha de salida:</label>
-							<input required type="date" id="fecha-salida" name="fecha-salida" class="rounded-md m-2">
+							<input required type="date" id="fecha-salida" name="fecha-salida" class="rounded-md m-2" />
 
 							<label for="fecha-regreso mr-2" class="block font-bold mx-2">Fecha de regreso:</label>
-							<input required type="date" id="fecha-regreso" name="fecha-regreso" class="rounded-md m-2">
+							<input required type="date" id="fecha-regreso" name="fecha-regreso"
+								class="rounded-md m-2" />
 						</div>
 					</div>
 					<div class="flex justify-center items-center">
@@ -102,11 +100,7 @@
 				</form>
 			</article>
 		</section>
-
 	</main>
-	<footer>
-	</footer>
-</body>
 </body>
 
 </html>
