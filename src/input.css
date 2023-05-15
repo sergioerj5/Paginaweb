@@ -22,7 +22,11 @@
   }
 
   .input-prymary {
+<<<<<<< HEAD
    @apply border text-base px-2 py-1 focus:outline-none focus:ring-0 rounded-md;
+=======
+    @apply border  text-base px-2 py-1  focus:outline-none focus:ring-0  rounded-md;
+>>>>>>> 657f0e28a99f8943dcbb667c8b4a59edd28e8f64
   }
 }
 
