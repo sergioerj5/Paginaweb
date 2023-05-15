@@ -6,8 +6,9 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="/dist/output.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<!-- <link rel="stylesheet" href="../estilos.css"> -->	
-	<title>Combo</title>
+	<title>Vuelos</title>
 </head>
 <body class="flex flex-col min-h-screen ">
 	<header class="flex flex-row p-4 max-w-screen justify-between items-center backdrop-blur-xl bg-white/25">
@@ -18,10 +19,150 @@
 			<a href="#" class="a-primary">Contacto</a>
 		</nav>
 	</header>
-	<main class="flex-grow ">
-		
+	<main class="flex-grow bg-cover bg-center  items-center justify-center " style="background-image: url('img/img2.jpg');">
+		<section  class="flex  justify-center bg-cover w-full bg-center">
+			<article class="flex flex-col justify-center items-center backdrop-blur-sm bg-white/25 self-center w-full p-3 mt-2 rounded-md">
+				<form class="" action="" method="" class="flex  items-center justify-center">
+					<div class="flex flex-col items-center justify-center bg-white rounded-md p-4 w-fit">
 
-	<!-- ofertas de viajes -->
+
+						<div class="flex items-center justify-center">
+							<label for="origen" class="block font-bold mx-2">Origen</label>
+							<select name="ciudades" id="ciudades" data-te-select-init data-te-select-visible-options="8"
+								class="h-9 py-1 m-2 focus:outline-none focus:ring-0 focus:border-morado rounded-md"
+								>
+								<option value="1">Cancun</option>
+								<option value="2">Merida</option>
+								<option value="3">Veracruz</option>
+								<option value="4">Campeche</option>
+								<option value="5"selected>Villahermosa</option>
+								<option value="6">Chetumal</option>
+								<option value="7">Cd. de México(Todos)</option>
+								<option value="8">Guadalajara</option>
+							</select>
+
+							<label for="destino" class="block font-bold mx-2">Destino:</label>
+							<select name="destino" id="Destinos" data-te-select-init data-te-select-visible-options="8"
+								class="h-9 py-1 m-2 focus:outline-none focus:ring-0 focus:border-morado rounded-md"
+								>
+								<option value="1">Cancun</option>
+								<option value="2">Merida</option>
+								<option value="3">Veracruz</option>
+								<option value="4">Campeche</option>
+								<option value="5"selected>Villahermosa</option>
+								<option value="6">Chetumal</option>
+								<option value="7">Cd. de México(Todos)</option>
+								<option value="8">Guadalajara</option>
+							</select>
+
+
+							<label for="tipo_pasajeros" class="block font-bold mx-2">Pasajeros: </label>
+							<select name="tipo-de-pasajeros" id="tipo-de-pasajeros" data-te-select-init
+								data-te-select-visible-options="3"
+								class="h-9 py-1 m-2 focus:outline-none focus:ring-0 focus:border-morado rounded-md"
+								>
+								<option value="Adultos">Adultos</option>
+								<option value="niños">Adolescentes</option>
+								<option value="infantes">Niños</option>
+							</select>
+
+
+
+							<label for="tipo_vuelo" class="block font-bold mx-2">Tipo de vuelo: </label>
+							<select name="tipo-de-vuelo" id="Tipo-de-Vuelo" data-te-select-init
+								data-te-select-visible-options="3"
+								class="h-9 py-1 m-2 focus:outline-none focus:ring-0 focus:border-morado rounded-md"
+								>
+								<option value="directo">Directo</option>
+								<option value="escalas">Escalas</option>
+							</select>
+						</div>
+						<div class="flex items-center justify-center">
+							<label for="fecha-salida mr-2" class="block font-bold mx-2">Fecha de salida:</label>
+							<input required type="date" id="fecha-salida" name="fecha-salida" class="rounded-md m-2">
+						</div>
+					</div>
+					<div class="flex justify-center items-center">
+						<button class="button-prymary w-48 mt-5">Buscar vuelo</button>
+					</div>
+				</form>
+			</article>
+		</section>
+
+		<section class="container mx-auto">
+			<article class="flex flex-col py-2 ">
+				<section class="flex items-center justify-between bg-white rounded-md shadow-md hover:shadow-xl w-full h-fit my-1">
+					<div class="flex items-center ">
+
+						<div class="flex p-4">
+							<h4 class="text-xl text-lime-700 font-bold px-4 m-4">Villahermosa </h4> 
+							<div class="flex flex-col items-center">
+								<p>--------<i class="fa-solid fa-plane-departure "></i>--------</p>
+								<p>02:00:00</p>
+							</div>
+							<h4 class="text-xl text-lime-700 font-bold px-4 m-4">Cancun</h4>
+						</div>
+						<div class="flex ">
+							<div class="mx-1 ">
+								<h3 class="text-base font-semibold">Hora de salida</h3>
+								<p>13:00:00</p>
+								<h3 class="text-base font-semibold">Hora de salida</h3>
+								<p >13:00:00</p>
+							</div>
+							<div class="mx-1">
+								<h3 class="text-base font-semibold">Fecha de salida</h3>
+								<p>13:00:00</p>
+								<h3 class="text-base font-semibold">Fecha de salida</h3>
+								<p >13:00:00</p>
+							</div>
+						</div>
+						<h3 class="text-xl text-lime-700 font-bold px-4 m-4">Directo</h3>
+					</div>
+					<div class="mx-4">
+						<button class="button-prymary">Continuar</button>
+					</div>
+				</section>
+
+				<section class="flex items-center justify-between bg-white rounded-md shadow-md hover:shadow-xl w-full h-fit my-1">
+					<div class="flex items-center ">
+
+						<div class="flex p-4">
+							<h4 class="text-xl text-lime-700 font-bold px-4 m-4">Villahermosa </h4> 
+							<div class="flex flex-col items-center">
+								<p>--------<i class="fa-solid fa-plane-departure "></i>--------</p>
+								<p>02:00:00</p>
+							</div>
+							<h4 class="text-xl text-lime-700 font-bold px-4 m-4">Cancun</h4>
+						</div>
+						<div class="flex ">
+							<div class="mx-1 ">
+								<h3 class="text-base font-semibold">Hora de salida</h3>
+								<p>13:00:00</p>
+								<h3 class="text-base font-semibold">Hora de salida</h3>
+								<p >13:00:00</p>
+							</div>
+							<div class="mx-1">
+								<h3 class="text-base font-semibold">Fecha de salida</h3>
+								<p>13:00:00</p>
+								<h3 class="text-base font-semibold">Fecha de salida</h3>
+								<p >13:00:00</p>
+							</div>
+						</div>
+						<h3 class="text-xl text-lime-700 font-bold px-4 m-4">Directo</h3>
+					</div>
+					<div class="mx-4">
+						<button class="button-prymary">Continuar</button>
+					</div>
+				</section>
+
+
+				
+			</article>
+			
+		</section>
+
+	</main>
+
 
 
 	</main>
