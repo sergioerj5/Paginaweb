@@ -20,7 +20,6 @@
   .button-secundary {
     @apply bg-indigo-700 p-1 px-2 border border-indigo-700 text-white rounded-md font-semibold hover:bg-white hover:text-indigo-700;
   }
-  
   .input-prymary {
     @apply border  text-base px-2 py-1  focus:outline-none focus:ring-0  rounded-md;
   }
