@@ -5,10 +5,32 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="/dist/output.css" rel="stylesheet">
+	<link href="../dist/output.css" rel="stylesheet">
 	<!-- <link rel="stylesheet" href="../estilos.css"> -->	
 	<title>Pasajeros</title>
 </head>
+<?php
+	if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+		// La solicitud se realizó mediante el método GET
+		// Aquí puedes procesar los parámetros recibidos y realizar las validaciones necesarias
+		$idvuelo = $_GET['idvuelo'];
+        $idvuelo = $_GET['paquete'];
+		
+		// Validar y procesar los parámetros recibidos
+		// ...
+	
+		// Continuar con tu lógica de negocio
+		// ...
+	} else {
+		// La solicitud no se realizó mediante el método GET
+		// Puedes mostrar un mensaje de error o redirigir a otra página
+		echo "Error: La solicitud debe realizarse mediante el método GET.";
+	}
+	
+
+
+?>
+
 <body class="flex flex-col min-h-screen ">
 	<header class="flex flex-row p-4 max-w-screen justify-between items-center backdrop-blur-xl bg-white/25">
 		<nav class="flex ml-12 ">
@@ -21,7 +43,7 @@
 	<main class="flex-grow container mx-auto">
 			<h3 class="text-4xl font-extrabold ">Información de pasajeros</h3>
             <h4 class="text-2xl font-bold text-sky-600">Completa los campos solicitodos a continuación.</h4>
-        <form action="" class="bg-gray-300 p-2 rounded-md">
+        <form action="adicionales.php" method="post" class="bg-gray-300 p-2 rounded-md">
             <section class="bg-white rounded-md shadow p-4 mx-2">
                 <h3 class="font-semibold">
                 Información personal
