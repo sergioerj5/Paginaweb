@@ -5,10 +5,33 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="/dist/output.css" rel="stylesheet">
+	<link href="../dist/output.css" rel="stylesheet">
 	<!-- <link rel="stylesheet" href="../estilos.css"> -->	
 	<title>Combo</title>
 </head>
+
+<?php
+	if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+		// La solicitud se realizó mediante el método GET
+		// Aquí puedes procesar los parámetros recibidos y realizar las validaciones necesarias
+		$idvuelo = $_GET['idVuelo'];
+		
+		// Validar y procesar los parámetros recibidos
+		// ...
+	
+		// Continuar con tu lógica de negocio
+		// ...
+	} else {
+		// La solicitud no se realizó mediante el método GET
+		// Puedes mostrar un mensaje de error o redirigir a otra página
+		echo "Error: La solicitud debe realizarse mediante el método GET.";
+	}
+	
+
+
+?>
+
+
 <body class="flex flex-col min-h-screen ">
 	<header class="flex flex-row p-4 max-w-screen justify-between items-center backdrop-blur-xl bg-white/25">
 		<nav class="flex ml-12 ">
@@ -39,8 +62,12 @@
 				</ul>
 			</div>
 			<div class="self-end mb-2">
-				<h4 class="text-2xl font-bold text-orange-500 text-right w-full my-2">Gratis</h4>
-				<a href="" class="text-lg  text-right button-prymary">Continuar</a>
+				<h4 class="text-2xl font-bold text-orange-500 text-right w-full my-2">250$</h4>
+				<?php
+					echo '<a href="pasajeros.php?idvuelo=' . $idvuelo . '&paquete=1" class="text-lg text-right button-prymary">Continuar con Zero</a>';
+
+				
+				?>
 			</div>
 		</article>
 
@@ -66,7 +93,12 @@
 			
 			<div class="self-end mb-2">
 				<h4 class="text-2xl font-bold text-orange-500 text-right w-full my-2">+300$</h4>
-				<a href="" class="text-lg  text-right button-prymary">Continuar con Light </a>
+				<?php
+					echo '<a href="pasajeros.php?idvuelo=' . $idvuelo . '&paquete=2" class="text-lg text-right button-prymary">Continuar con Light</a>';
+
+				
+				?>
+				
 			</div>
 		</article>
 
@@ -93,7 +125,11 @@
 			
 			<div class="self-end mb-2">
 				<h4 class="text-2xl font-bold text-orange-500 text-right w-full my-2">+1,484$</h4>
-				<a href="" class="text-lg  text-right button-prymary">Continuar con Extra</a>
+				<?php
+					echo '<a href="pasajeros.php?idvuelo=' . $idvuelo . '&paquete=3" class="text-lg text-right button-prymary">Continuar con Extra</a>';
+
+				
+				?>
 			</div>
 		</article>
 		<article>
