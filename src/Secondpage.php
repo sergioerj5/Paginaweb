@@ -18,24 +18,23 @@
 <body class="flex flex-col min-h-screen">
 	<header class="flex flex-row p-4 max-w-screen justify-between items-center ">
 		<nav class="flex ml-12 ">
-			<a href="#" class="a-primary">Inicio</a>
-			<a href="#" class="a-primary">Destino</a>
-			<a href="#" class="a-primary">Blog</a>
-			<a href="#" class="a-primary">Contacto</a>
+		<a href="index.php" class="a-primary">Inicio</a>
+        <a href="./paginas/somo.html" class="a-primary">¿Quienes somos?</a>
+        <a href="./paginas/Atencion.html" class="a-primary">Atencion al Cliente</a>
 		</nav>
 	</header>
 	<main class="flex-grow bg-cover bg-center  items-center justify-center " style="background-image: url('img/img2.jpg');">
 		<section  class="flex  justify-center bg-cover w-full bg-center">
 			<article class=" backdrop-blur-sm bg-white/25 self-center w-fit p-3 m-12 rounded-md">
-				<h1 class="text-5xl  font-extrabold ml-11 mt-11 text-center line-clamp-3 text-gray-900 leading-10 mb-2">
+				<h1 class="text-5xl  font-extrabold ml-11 mt-11 text-center line-clamp-3 text-gray-900 leading-10 mb-2 ">
 					Encuentra tu Vuelo
 				</h1>
 
-				<form class="" action="vuelosencontrados.php" method="post" class="flex  items-center justify-center">
-					<div class="flex flex-col items-center justify-center bg-white rounded-md p-4">
+				<form class="" action="vuelosencontrados.php" method="post" class="flex  items-center justify-center ">
+					<div class=" flex flex-col items-center justify-center backdrop-hue-rotate-0-sm ">
 
 
-						<div class="flex items-center justify-center">
+						<div class="flex items-center justify-center ">
 							<label for="origen" class="block font-bold mx-2">Origen</label>
 							<select name="ciudad-salida" id="ciudad-salida" data-te-select-init data-te-select-visible-options="8"
 								class="h-9 py-1 m-2 focus:outline-none focus:ring-0 focus:border-morado rounded-md"
@@ -71,8 +70,8 @@
 								class="h-9 py-1 m-2 focus:outline-none focus:ring-0 focus:border-morado rounded-md"
 								>
 								<option value="1">Adultos</option>
-								<option value="2">Adolescentes</option>
-								<option value="3">Niños</option>
+								<option value="2">Menor</option>
+								<option value="3">Bebes</option>
 							</select>
 
 

@@ -3,7 +3,7 @@
 <?php
     //conexion  a la base de datos 
     $usuario    = 'root';
-    $contrasena = '';
+    $contrasena = 'Singtoyou';
     $servidor   = 'localhost';
     $basedatos  = 'aerocarrillo';
     $conexion   = mysqli_connect($servidor, $usuario, $contrasena) or die ("No se a podido conectar a la base de datos");

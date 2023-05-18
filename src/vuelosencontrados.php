@@ -18,7 +18,7 @@
 		$fechaLlegada = $_POST['fecha-llegada'];
 		$ciudadSalida = $_POST['ciudad-salida'];
 		$ciudadDestino = $_POST['ciudad-destino'];
-		$tipodevuelo=$_POST['tipo-de-vuelo'];
+		$tipodevuelo = $_POST['tipo-de-vuelo'];
 		// Aquí puedes realizar las validaciones adicionales que necesites
 		if (empty($fechaSalida) || empty($fechaLlegada) || empty($ciudadSalida) || empty($ciudadDestino)) {
 			// Algunos parámetros están vacíos, muestra un mensaje de error
@@ -69,10 +69,8 @@
 <body class="flex flex-col min-h-screen ">
 	<header class="flex flex-row p-4 max-w-screen justify-between items-center backdrop-blur-xl bg-white/25">
 		<nav class="flex ml-12 ">
-			<a href="#" class="a-primary">Inicio</a>
-			<a href="#" class="a-primary">Destino</a>
-			<a href="#" class="a-primary">Blog</a>
-			<a href="#" class="a-primary">Contacto</a>
+		<a href="index.php" class="a-primary">Inicio</a>
+        <a href="./paginas/Atencion.html" class="a-primary">Atencion al Cliente</a>
 		</nav>
 	</header>
 	<main class="flex-grow bg-cover bg-center  items-center justify-center " style="background-image: url('img/img2.jpg');">
@@ -110,7 +108,7 @@
 						<div class="mx-1">
 							<h3 class="text-base font-semibold">Fecha de salida</h3>
 							<p>'.$row['fecha_salida'].'</p>
-							<h3 class="text-base font-semibold">Fecha de llegada</h3>
+							<h3 class="text-base font-semibold">Fecha de Regreso</h3>
 							<p >'.$row['fecha_llegada'].'</p>
 						</div>
 					</div>
@@ -127,14 +125,7 @@
 		}
 	
 	?>
-
-
-				
-
-				
-
-
-				
+	
 			</article>
 			
 		</section>

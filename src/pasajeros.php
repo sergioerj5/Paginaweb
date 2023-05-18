@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
 	<meta charset="UTF-8">
@@ -9,41 +9,23 @@
 	<!-- <link rel="stylesheet" href="../estilos.css"> -->	
 	<title>Pasajeros</title>
 </head>
-<?php
-	if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-		// La solicitud se realizó mediante el método GET
-		// Aquí puedes procesar los parámetros recibidos y realizar las validaciones necesarias
-		$idvuelo = $_GET['idvuelo'];
-        $idvuelo = $_GET['paquete'];
-		
-		// Validar y procesar los parámetros recibidos
-		// ...
-	
-		// Continuar con tu lógica de negocio
-		// ...
-	} else {
-		// La solicitud no se realizó mediante el método GET
-		// Puedes mostrar un mensaje de error o redirigir a otra página
-		echo "Error: La solicitud debe realizarse mediante el método GET.";
-	}
-	
 
 
-?>
 
 <body class="flex flex-col min-h-screen ">
 	<header class="flex flex-row p-4 max-w-screen justify-between items-center backdrop-blur-xl bg-white/25">
 		<nav class="flex ml-12 ">
-			<a href="#" class="a-primary">Inicio</a>
-			<a href="#" class="a-primary">Destino</a>
-			<a href="#" class="a-primary">Blog</a>
-			<a href="#" class="a-primary">Contacto</a>
+			<a href="index.php" class="a-primary">Inicio</a>
+            <a href="Secondpage.php" class="a-primary">Destino</a>
+            <a href="./paginas/somo.html" class="a-primary">¿Quienes somos?</a>
+            <a href="./paginas/Atencion.html" class="a-primary">Atencion al Cliente</a>
 		</nav>
 	</header>
+
 	<main class="flex-grow container mx-auto">
 			<h3 class="text-4xl font-extrabold ">Información de pasajeros</h3>
             <h4 class="text-2xl font-bold text-sky-600">Completa los campos solicitodos a continuación.</h4>
-        <form action="adicionales.php" method="post" class="bg-gray-300 p-2 rounded-md">
+        <form action= "insertar.php" method="post" class="bg-gray-300 p-2 rounded-md">
             <section class="bg-white rounded-md shadow p-4 mx-2">
                 <h3 class="font-semibold">
                 Información personal
@@ -54,36 +36,11 @@
                     <input type="text" id="Nombre" name="Nombre" class="input-prymary" required placeholder="Nombre...">
                     <label for="Apellido">Apellido(s): </label>
                     <input type="text" id="Apellido" name="Apellido" class="input-prymary" required placeholder="Apellidos...">
-                    <label for="genero">Género: </label>         
-                    <select name="genero" id="genero" data-te-select-init
-                    data-te-select-visible-options="3"
-                    class="h-9 py-1 m-2 focus:outline-none focus:ring-0 focus:border-morado rounded-md">
-                        <option value="masculino">Masculino</option>
-                        <option value="femenino">Femenino</option>
-                    </select>
                 </div>
                 <div class="my-2">
-                    <label for="nacionalidad">Nacionalidad: </label>
-                    <select name="nacionalidad" id="nacionalidad" data-te-select-init
-                    data-te-select-visible-options="14"
-                    class="h-9 py-1 m-2 focus:outline-none focus:ring-0 focus:border-morado rounded-md">
-                        <option value="1">México</option>
-                        <option value="2">Estados Unidos de América</option>
-                        <option value="3">Afganistan</option>
-                        <option value="4">Albania</option>
-                        <option value="5">Alemania</option>
-                        <option value="6">Andorra</option>
-                        <option value="7">Argentina</option>
-                        <option value="8">Australia</option>
-                        <option value="9">Belicia</option>
-                        <option value="10">Brasil</option>
-                        <option value="11">Bélgica</option>
-                        <option value="12">Canadá</option>
-                        <option value="13">Chile</option>
-                        <option value="14">Colombia</option>
-                    </select>
+                   
                     <label for="Fecha de nacimiento">Fecha de nacimiento: </label>
-                    <input type="date" name="Fechanac" id="Fechanac" class="input-prymary" required >
+                    <input type="date" name="Fechanac" id="Fechanac" class="input-prymary"  >
                 </div>
             </section>
 
@@ -98,17 +55,52 @@
                     <option value="Principal">Principal</option>
                 </select>
                 <label for="Teléfono">Teléfono: </label>
-                <input type="tel" id="Teléfono" name="Teléfono" class="input-prymary" required placeholder="Telefono...">
+                <input type="tel" id="Telefono" name="Telefono" class="input-prymary" required placeholder="Telefono...">
                 <label for="Teléfono">Teléfono Emergencia: </label>
-                <input type="tel" id="Teléfono" name="Teléfono" class="input-prymary" required placeholder="Telefono...">
+                <input type="tel" id="Telefonoemer" name="Telefonoemer" class="input-prymary" required placeholder="Telefono...">
                 <div>
                     <label for="correo-contacto">Correo de contacto: </label>
-                    <input type="email" id="correo-contacto" name="correo-contacto" class="input-prymary" required placeholder="Correo de contacto">      
+                    <input type="email" id="correocontacto" name="correocontacto" class="input-prymary" required placeholder="Correo de contacto">      
                 </div>
             </section>
             <div class="flex justify-end items-center w-full">
-                <button type="submit" class="button-prymary  left-0 mr-4">Continuar</button>
+            <button type="submit" class="button-prymary  left-0 mr-4">Continuar</button>
+
             </div>
+            <?php 
+class Pasajeros
+{
+    public $id;
+    public $nombre;
+    public $apellido;
+    public $correo;
+    public $telefono;
+    public $telofonoEmer;
+    public $fecha_nac;
+    
+    public function __construct($id,$nombre, $apellido, $telefono, $telefonoEmer,  $correo,  $fecha_nac)
+    {
+        
+        $this->Nombre = $nombre;
+        $this->Apellido = $apellido;
+        $this->Telefono = $telefono;
+        $this->TelefonoEmer = $telefonoEmer;
+        $this->correocontacto = $correo;
+        $this->Fechanac = $fecha_nac;
+    }
+
+    public function insertarDatosAsesor($conexion)
+    {
+        $query = "INSERT INTO pasajeros(nombre, apellido, correo, fecha_nacimiento, numero_telefono, numero_accidentes) 
+        VALUES ('$this->Nombre', '$this->Apellido', ' $this->correocontacto', '$this->Fechanac', '$this->Telefono', '$this->TelefonoEmer')";
+
+        if ($conexion->query($query) === TRUE) {
+            return TRUE;
+        }
+    }
+}
+
+?>
         </form>    
 	</main>
 </body>
