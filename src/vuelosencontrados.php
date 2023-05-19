@@ -29,32 +29,35 @@
 			// ...
 			require_once ('../BD/conexion.php');
 			$query="SELECT
-			c_salida.ciudad AS salida,
-			c_llegada.ciudad AS destino,
-			h.hora_salida,
-			h.hora_llegada,
-			aeropuertos.nombre,
-			vuelos.fecha_salida,
-			vuelos.fecha_llegada,
-			vuelos.duración,
-			tipos_vuelos.tipo as tipovuelo,
-			tipos_pasajeros.tipo as tipopasajero,
-			h.pk_horario 
-		FROM
-			horarios AS h
-			JOIN ciudades AS c_salida ON h.fk_ciudad_salida = c_salida.pk_ciudad
-			JOIN ciudades AS c_llegada ON h.fk_ciudad_destino = c_llegada.pk_ciudad
-			INNER JOIN aeropuertos ON h.fk_aeropuerto = aeropuertos.pk_aeropuerto
-			INNER JOIN vuelos ON h.fk_vuelo = vuelos.pk_vuelo
-			INNER JOIN tipos_vuelos ON vuelos.fk_tipo_vuelo = tipos_vuelos.pk_tipo_vuelo,
-			pasajeros
-			INNER JOIN tipos_pasajeros ON pasajeros.fk_tipo_pasajero = tipos_pasajeros.pk_tipo_pasajero 
-		WHERE
-			vuelos.fecha_salida >= '$fechaSalida'
-			AND vuelos.fecha_llegada >= '$fechaLlegada'
-			AND h.fk_ciudad_destino = '$ciudadDestino' 
-			AND h.fk_ciudad_salida = '$ciudadSalida' 
-			AND vuelos.fk_tipo_vuelo = '$tipodevuelo'";
+	vuelos.pk_vuelo, 
+	salida.ciudad AS salida, 
+	destino.ciudad AS destino, 
+	vuelos.fecha_salida, 
+	vuelos.fecha_llegada, 
+	vuelos.`duración`, 
+	horarios.hora_salida, 
+	horarios.hora_llegada, 
+	vuelos.fk_tipo_vuelo
+FROM
+	vuelos
+	INNER JOIN
+	horarios
+	ON 
+		vuelos.pk_vuelo = horarios.fk_vuelo
+	INNER JOIN
+	ciudades AS destino
+	ON 
+		horarios.fk_ciudad_destino = destino.pk_ciudad
+	INNER JOIN
+	ciudades AS salida
+	ON 
+		horarios.fk_ciudad_salida = salida.pk_ciudad
+WHERE
+	vuelos.fecha_llegada = '$fechaLlegada' AND
+	vuelos.fecha_salida = '$fechaSalida' AND
+	horarios.fk_ciudad_destino ='$ciudadDestino'AND
+	horarios.fk_ciudad_salida = '$ciudadSalida' AND
+	vuelos.fk_tipo_vuelo = '$tipodevuelo'";
 		$resultados= mysqli_query($conexion, $query);
 
 		}
@@ -116,6 +119,7 @@
 				</div>
 				<div class="mx-4">
 					<a class="button-prymary" href="combos.php?idVuelo='.$row['pk_horario'].'">Continuar</a>
+					
 				</div>
 			</section>';
 			}

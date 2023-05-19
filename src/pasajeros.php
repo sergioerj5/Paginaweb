@@ -70,6 +70,7 @@
             <?php 
 class Pasajeros
 {
+    
     public $nombre;
     public $apellido;
     public $correo;
@@ -77,7 +78,7 @@ class Pasajeros
     public $telofonoEmer;
     public $fecha_nac;
     
-    public function __construct($nombre, $apellido, $telefono, $telefonoEmer,  $correo,  $fecha_nac)
+    public function __construct($id,$nombre, $apellido, $telefono, $telefonoEmer,  $correo,  $fecha_nac)
     {
         
         $this->Nombre = $nombre;
