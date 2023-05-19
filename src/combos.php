@@ -11,31 +11,31 @@
 </head>
 
 <?php
-class Combos
-{
-	public $Zero;
-	public $Light;
-	public $Extra;
+// class Combos
+// {
+// 	public $Zero;
+// 	public $Light;
+// 	public $Extra;
 
 
-	public function __construct($Zero, $Light, $Extra)
-	{
+// 	public function __construct($Zero, $Light, $Extra)
+// 	{
 
-		$this->botonZero = $Zero;
-		$this->botonLight = $Light;
-		$this->botonExtra = $Extra;
-	}
+// 		$this->botonZero = $Zero;
+// 		$this->botonLight = $Light;
+// 		$this->botonExtra = $Extra;
+// 	}
 
-	public function insertarDatos($conexion)
-	{
-		$query = "INSERT INTO pasajeros(nombre, apellido, correo, fecha_nacimiento, numero_telefono, numero_accidentes) 
-        VALUES ('$this->botonZero', '$this->botonLight', ' $this->botonExtra')";
+// 	public function insertarDatos($conexion)
+// 	{
+// 		$query = "INSERT INTO reservaciones(pk_tipo_paquete) 
+//         VALUES ('$this->botonZero', '$this->botonLight', ' $this->botonExtra')";
 
-		if ($conexion->query($query) === TRUE) {
-			return TRUE;
-		}
-	}
-}
+// 		if ($conexion->query($query) === TRUE) {
+// 			return TRUE;
+// 		}
+// 	}
+// }
 
 ?>
 
@@ -76,8 +76,8 @@ class Combos
 					<?php
 					//  echo '<a href="pasajeros.php?idvuelo=' . $idvuelo . '&paquete=1" class="text-lg text-right button-prymary">Continuar con Zero</a>';
 					?>
-					<form action="pasajeros.php" method="POST">
-						<button type="submit" name="paquete" value="2"
+					<form action="insertarCombos.php" method="POST">
+						<button type="submit" name="paquete" value="1"
 							class="text-lg text-right button-prymary">Continuar con Zero</button>
 					</form>
 					<!-- <button type="submit" name ="botonZero" class='&paquete=1" class="text-lg text-right button-prymary"'>Continuar con Zero</button> -->
@@ -110,7 +110,7 @@ class Combos
 					<?php
 					// echo '<a href="pasajeros.php?idvuelo=' . $idvuelo . '&paquete=2" class="text-lg text-right button-prymary">Continuar con Light</a>';
 					?>
-					<form action="pasajeros.php" method="POST">
+					<form action="insertarCombos.php" method="POST">
 						<button type="submit" name="paquete" value="2"
 							class="text-lg text-right button-prymary">Continuar con Light</button>
 					</form>
@@ -146,7 +146,7 @@ class Combos
 					<?php
 					// echo '<a href="pasajeros.php?idvuelo=' . $idvuelo . '&paquete=3" class="text-lg text-right button-prymary">Continuar con Extra</a>';
 					?>
-					<form action="pasajeros.php" method="POST">
+					<form action="insertarCombos.php" method="POST">
 						<button type="submit" name="paquete" value="3"
 							class="text-lg text-right button-prymary">Continuar con Extra</button>
 					</form>
