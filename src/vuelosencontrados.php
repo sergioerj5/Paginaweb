@@ -31,35 +31,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		// ...
 		require_once('../BD/conexion.php');
 		$query = "SELECT
-		`vuelos`.`pk_vuelo` AS `pk_vuelo`,
-		`salida`.`ciudad` AS `salida`,
-		`destino`.`ciudad` AS `destino`,
-		`vuelos`.`fecha_salida` AS `fecha_salida`,
-		`vuelos`.`fecha_llegada` AS `fecha_llegada`,
-		`vuelos`.`duración` AS `duración`,
-		`horarios`.`hora_salida` AS `hora_salida`,
-		`horarios`.`hora_llegada` AS `hora_llegada`,
-		`tipos_vuelos`.`tipo` AS `tipo`,
-		`horarios`.`pk_horario` AS `pk_horario` 
+		vuelos.pk_vuelo AS pk_vuelo,
+	salida.ciudad AS salida,
+	destino.ciudad AS destino,
+	vuelos.fecha_salida AS fecha_salida,
+	vuelos.fecha_llegada AS fecha_llegada,
+	vuelos.`duración` AS `duración`,
+	horarios.hora_salida AS hora_salida,
+	horarios.hora_llegada AS hora_llegada,
+	tipos_vuelos.tipo,
+	horarios.pk_horario  
 	FROM
-		((((
-						`vuelos`
-						JOIN `horarios` ON ((
-								`vuelos`.`pk_vuelo` = `horarios`.`fk_vuelo` 
-							)))
-					JOIN `ciudades` `destino` ON ((
-							`horarios`.`fk_ciudad_destino` = `destino`.`pk_ciudad` 
-						)))
-				JOIN `ciudades` `salida` ON ((
-						`horarios`.`fk_ciudad_salida` = `salida`.`pk_ciudad` 
-					)))
-			JOIN `tipos_vuelos` ON ((
-					`vuelos`.`fk_tipo_vuelo` = `tipos_vuelos`.`pk_tipo_vuelo` 
-				))) 
-	WHERE
+	(
 		(
-		`vuelos`.`fecha_llegada` = '$fechaLlegada' 	
-		)";
+			( vuelos JOIN horarios ON ( ( vuelos.pk_vuelo = horarios.fk_vuelo ) ) )
+			JOIN ciudades AS destino ON ( ( horarios.fk_ciudad_destino = destino.pk_ciudad ) ) 
+		)
+		JOIN ciudades AS salida ON ( ( horarios.fk_ciudad_salida = salida.pk_ciudad ) ) 
+	)
+	INNER JOIN tipos_vuelos ON vuelos.fk_tipo_vuelo = tipos_vuelos.pk_tipo_vuelo 
+WHERE
+	vuelos.fecha_llegada = '$fechaLlegada' AND
+	vuelos.fecha_salida = '$fechaSalida' AND
+	horarios.fk_ciudad_destino ='$ciudadDestino'AND
+	horarios.fk_ciudad_salida = '$ciudadSalida' AND
+	vuelos.fk_tipo_vuelo = '$tipodevuelo'";
 		$resultados = mysqli_query($conexion, $query);
 
 	}
