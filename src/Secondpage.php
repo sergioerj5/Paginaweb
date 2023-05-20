@@ -35,21 +35,17 @@
 
 
 						<div class="flex items-center justify-center ">
-							<label for="origen" class="block font-bold mx-2">Origen</label>
+							<label for="origen" class="block font-bold mx-2">Lugar de salida</label>
 							<select name="ciudad-salida" id="ciudad-salida" data-te-select-init data-te-select-visible-options="8"
 								class="h-9 py-1 m-2 focus:outline-none focus:ring-0 focus:border-morado rounded-md"
 								>
-								<option value="1">Cancun</option>
-								<option value="2">Merida</option>
-								<option value="3">Veracruz</option>
-								<option value="4">Campeche</option>
+								
 								<option value="5"selected>Villahermosa</option>
-								<option value="6">Chetumal</option>
-								<option value="7">Cd. de México(Todos)</option>
-								<option value="8">Guadalajara</option>
+		
+								
 							</select>
 
-							<label for="destino" class="block font-bold mx-2">Destino:</label>
+							<label for="destino" class="block font-bold mx-2">Lugar de destino:</label>
 							<select name="ciudad-destino" id="ciudad-destino" data-te-select-init data-te-select-visible-options="8"
 								class="h-9 py-1 m-2 focus:outline-none focus:ring-0 focus:border-morado rounded-md"
 								>
@@ -59,8 +55,7 @@
 								<option value="4">Campeche</option>
 								<option value="5">Villahermosa</option>
 								<option value="6">Chetumal</option>
-								<option value="7">Cd. de México(Todos)</option>
-								<option value="8">Guadalajara</option>
+							
 							</select>
 
 
@@ -70,8 +65,6 @@
 								class="h-9 py-1 m-2 focus:outline-none focus:ring-0 focus:border-morado rounded-md"
 								>
 								<option value="1">Adultos</option>
-								<option value="2">Menor</option>
-								<option value="3">Bebes</option>
 							</select>
 
 
@@ -103,7 +96,6 @@
 	</main>
 	<footer>
 	</footer>
-</body>
 </body>
 
 </html>

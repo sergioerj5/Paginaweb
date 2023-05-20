@@ -51,8 +51,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	)
 	INNER JOIN tipos_vuelos ON vuelos.fk_tipo_vuelo = tipos_vuelos.pk_tipo_vuelo 
 WHERE
-	vuelos.fecha_llegada = '$fechaLlegada' AND
-	vuelos.fecha_salida = '$fechaSalida' AND
+	vuelos.fecha_llegada >= '$fechaLlegada' AND
+	vuelos.fecha_salida >= '$fechaSalida' AND
 	horarios.fk_ciudad_destino ='$ciudadDestino'AND
 	horarios.fk_ciudad_salida = '$ciudadSalida' AND
 	vuelos.fk_tipo_vuelo = '$tipodevuelo'";
@@ -77,6 +77,8 @@ WHERE
 	<main class="flex-grow bg-cover bg-center  items-center justify-center "
 		style="background-image: url('img/img2.jpg');">
 		<section class="flex  justify-center bg-cover w-full bg-center">
+
+		
 
 			<article
 				class="flex flex-col justify-center items-center backdrop-blur-sm bg-white/25 self-center w-full p-3 mt-2 rounded-md">

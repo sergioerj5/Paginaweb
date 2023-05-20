@@ -49,7 +49,11 @@ if (isset($_POST['paquete'])) {
         // Redirigir a la página "pasajeros.php" con el parámetro "idvuelo"
         header("Location: pasajeros.php?idvuelo=$ultimoIdReservacion");
         exit;
-    } 
+    } else {
+        echo "Error al insertar los datos de la reservación en la base de datos";
+    }
+} else {
+    echo "El parámetro 'paquete' no está presente en la solicitud";
 }
 
 $nombre = $_POST['Nombre'];
