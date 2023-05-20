@@ -26,6 +26,34 @@
 			<h3 class="text-4xl font-extrabold ">Información de pasajeros</h3>
             <h4 class="text-2xl font-bold text-sky-600">Completa los campos solicitodos a continuación.</h4>
         <form action= "insertar.php" method="post" class="bg-gray-300 p-2 rounded-md">
+
+
+        <?php
+         
+
+          if ($_SERVER["REQUEST_METHOD"] == "POST") {
+              // Obtener los datos del formulario
+              $nombre = $_POST['Nombre'];
+              $apellido = $_POST['Apellido'];
+              $email = $_POST['correocontacto'];
+              $fechanac = date("Y-m-d", strtotime($_POST['Fechanac']));
+              $tel = $_POST['Telefono'];
+              $telemer = $_POST['Telefonoemer'];
+      
+              // Crear una instancia de la clase Pasajeros con los datos del formulario
+              $pasajero = new Pasajeros($nombre, $apellido, $tel, $telemer, $email, $fechanac);
+      
+              // Insertar los datos en la base de datos
+              if ($pasajero->insertarDatosAsesor($conexion)) {
+                  echo "Datos insertados correctamente";
+              } else {
+                  echo "Error al insertar los datos";
+              }
+          }
+          ?>
+
+
+?>
             <section class="bg-white rounded-md shadow p-4 mx-2">
                 <h3 class="font-semibold">
                 Información personal

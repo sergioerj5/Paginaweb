@@ -20,10 +20,10 @@
 <body class="flex flex-col min-h-screen">
     <header class="flex flex-row p-4 max-w-screen justify-between items-center ">
         <nav class="flex ml-12 ">
-            <a href="#" class="a-primary">Inicio</a>
-            <a href="#" class="a-primary">Destino</a>
-            <a href="#" class="a-primary">Blog</a>
-            <a href="#" class="a-primary">Contacto</a>
+            <a href="index.php" class="a-primary">Inicio</a>
+			<a href="Secondpage.php" class="a-primary">Destino</a>
+			<a href="./paginas/somo.html" class="a-primary">¿Quienes somos?</a>
+			<a href="./paginas/Atencion.html" class="a-primary">Atencion al Cliente</a>
         </nav>
     </header>
     <main class="flex-grow container mx-auto">
