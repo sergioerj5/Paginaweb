@@ -48,7 +48,20 @@
 					<?php
 					//  echo '<a href="pasajeros.php?idvuelo=' . $idvuelo . '&paquete=1" class="text-lg text-right button-prymary">Continuar con Zero</a>';
 					?>
-					<form action="insertar_reservaciones.php" method="POST">
+					<?php
+					session_start();
+
+					// Verificar si se envió el formulario 1
+					if (isset($_POST['paquete'])) {
+						// Guardar los datos en variables de sesión
+						$_SESSION['paqueteSeleccionado'] = $_POST['paquete'];
+
+						// Redirigir al formulario 2
+						header("Location: pasajeros.php");
+						exit;
+					}
+					?>
+					<form action="" method="POST">
 						<button type="submit" name="paquete" value="1"
 							class="text-lg text-right button-prymary">Continuar con Zero</button>
 					</form>
@@ -82,7 +95,7 @@
 					<?php
 					// echo '<a href="pasajeros.php?idvuelo=' . $idvuelo . '&paquete=2" class="text-lg text-right button-prymary">Continuar con Light</a>';
 					?>
-					<form action="insertar_reservaciones.php" method="POST">
+					<form action="" method="POST">
 						<button type="submit" name="paquete" value="2"
 							class="text-lg text-right button-prymary">Continuar con Light</button>
 					</form>
@@ -118,7 +131,7 @@
 					<?php
 					// echo '<a href="pasajeros.php?idvuelo=' . $idvuelo . '&paquete=3" class="text-lg text-right button-prymary">Continuar con Extra</a>';
 					?>
-					<form action="insertar_reservaciones.php" method="POST">
+					<form action="" method="POST">
 						<button type="submit" name="paquete" value="3"
 							class="text-lg text-right button-prymary">Continuar con Extra</button>
 					</form>

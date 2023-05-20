@@ -28,7 +28,7 @@
     </header>
     <main class="flex-grow container mx-auto">
         <h2 class="text-2xl font-bold py-2 px-4">Servicios adicionales</h2>
-        <form action="reservacion.html" method="post" class="flex flex-col bg-white shadow-lg rounded-md pl-4 pr-12 py-4 border border-gray-700" >
+        <form action="reservacion.php" method="post" class="flex flex-col bg-white shadow-lg rounded-md pl-4 pr-12 py-4 border border-gray-700" >
             <article class="flex px-2">
                 <div class="ml-4 mr-14">
                     <h2>Selección de equipaje</h2>

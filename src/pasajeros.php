@@ -25,34 +25,68 @@
 	<main class="flex-grow container mx-auto">
 			<h3 class="text-4xl font-extrabold ">Información de pasajeros</h3>
             <h4 class="text-2xl font-bold text-sky-600">Completa los campos solicitodos a continuación.</h4>
-        <form action= "insertar.php" method="post" class="bg-gray-300 p-2 rounded-md">
+        <form action= "" method="post" class="bg-gray-300 p-2 rounded-md">
 
 
         <?php
          
 
-          if ($_SERVER["REQUEST_METHOD"] == "POST") {
-              // Obtener los datos del formulario
-              $nombre = $_POST['Nombre'];
-              $apellido = $_POST['Apellido'];
-              $email = $_POST['correocontacto'];
-              $fechanac = date("Y-m-d", strtotime($_POST['Fechanac']));
-              $tel = $_POST['Telefono'];
-              $telemer = $_POST['Telefonoemer'];
+        //   if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        //       // Obtener los datos del formulario
+        //       $nombre = $_POST['Nombre'];
+        //       $apellido = $_POST['Apellido'];
+        //       $email = $_POST['correocontacto'];
+        //       $fechanac = date("Y-m-d", strtotime($_POST['Fechanac']));
+        //       $tel = $_POST['Telefono'];
+        //       $telemer = $_POST['Telefonoemer'];
       
-              // Crear una instancia de la clase Pasajeros con los datos del formulario
-              $pasajero = new Pasajeros($nombre, $apellido, $tel, $telemer, $email, $fechanac);
+        //       // Crear una instancia de la clase Pasajeros con los datos del formulario
+        //       $pasajero = new Pasajeros($nombre, $apellido, $tel, $telemer, $email, $fechanac);
       
-              // Insertar los datos en la base de datos
-              if ($pasajero->insertarDatosAsesor($conexion)) {
-                  echo "Datos insertados correctamente";
-              } else {
-                  echo "Error al insertar los datos";
-              }
-          }
-          ?>
+        //       // Insertar los datos en la base de datos
+        //       if ($pasajero->insertarDatosAsesor($conexion)) {
+        //           echo "Datos insertados correctamente";
+        //       } else {
+        //           echo "Error al insertar los datos";
+        //       }
+        //   }
+        
+session_start();
+require('../BD/conexion.php');
 
+// Verificar si se envió el formulario 2
+if (isset($_POST['Nombre'])) {
+    // Recuperar los datos de la sesión
+    $paqueteSeleccionado = $_SESSION['paqueteSeleccionado'];
+    $nombre = $_POST['Nombre'];
+    $apellido = $_POST['Apellido'];
+    $email = $_POST['correocontacto'];
+    $fechanac = date("Y-m-d", strtotime($_POST['Fechanac']));
+    $tel = $_POST['Telefono'];
+    $telemer = $_POST['Telefonoemer'];
 
+    // Insertar en la tabla de pasajeros
+    $insertarPasajero = "INSERT INTO pasajeros (nombre, apellido, correo, fecha_nacimiento, numero_telefono, numero_accidentes) VALUES ('$nombre', '$apellido', '$email', '$fechanac', '$tel', '$telemer')";
+    $queryPasajero = mysqli_query($conexion, $insertarPasajero);
+
+    if ($queryPasajero) {
+        $idPasajero = mysqli_insert_id($conexion); // Obtener el pk del pasajero insertado
+
+        // Insertar en la tabla de reservaciones con el fk_tipo_paquete y fk_pasajero
+        $insertarReservacion = "INSERT INTO reservaciones (fk_tipo_paquete, fk_pasajero) VALUES ('$paqueteSeleccionado', '$idPasajero')";
+        $queryReservacion = mysqli_query($conexion, $insertarReservacion);
+
+        if ($queryReservacion) {
+            // Redirigir a otra página o mostrar un mensaje de éxito
+            header("Location: adicionales.php");
+            exit;
+        } else {
+            echo "Error al realizar la inserción en la tabla de reservaciones";
+        }
+    } else {
+        echo "Error al realizar la inserción en la tabla de pasajeros";
+    }
+}
 ?>
             <section class="bg-white rounded-md shadow p-4 mx-2">
                 <h3 class="font-semibold">
