@@ -16,6 +16,51 @@
         }
     </style>
 </head>
+<?php
+session_start();
+require('../BD/conexion.php');
+
+// Verificar si se envió el formulario 2
+if (isset($_POST['guardar'])) {
+    // Recuperar los datos de la sesión
+    $paqueteSeleccionado = $_SESSION['paqueteSeleccionado'];
+    $name = $_SESSION['name'];
+    $ape = $_SESSION['ape'];
+    $correo = $_SESSION['correo'];
+    $fecha = $_SESSION['fecha'];
+    $tel = $_SESSION['tel'];
+    $telemer = $_SESSION['telemer'];
+    $noMaletaSeleccionado = $_POST['cantidad']; // Corregir el nombre del campo aquí
+
+
+    $folio = rand(1000, 9999); // Número aleatorio de 4 dígitos
+
+    $valorPorDefecto = "1";
+    // Insertar en la tabla de pasajeros
+    $insertarPasajero = "INSERT INTO pasajeros (nombre, apellido, correo, fecha_nacimiento, numero_telefono, numero_accidentes, fk_tipo_pasajero) VALUES ('$name', '$ape', '$correo', '$fecha', '$tel', '$telemer', '$valorPorDefecto')";
+    $queryPasajero = mysqli_query($conexion, $insertarPasajero);
+
+    if ($queryPasajero) {
+        $idPasajero = mysqli_insert_id($conexion); // Obtener el pk del pasajero insertado
+
+        // Insertar en la tabla de reservaciones con el fk_tipo_paquete y fk_pasajero
+        $insertarReservacion = "INSERT INTO reservaciones (fk_tipo_paquete, folio, fk_pasajero, fk_adicional) VALUES ('$paqueteSeleccionado', '$folio', '$idPasajero', '$noMaletaSeleccionado')";
+        $queryReservacion = mysqli_query($conexion, $insertarReservacion);
+
+        if ($queryReservacion) {
+            $idReservacion = mysqli_insert_id($conexion); // Obtener el pk de la reservación insertada
+
+            // Insertar en la tabla de reservaciones con el fk_adicional
+            header("Location: reservacion.php");
+			exit;
+        } else {
+            echo "Error al realizar la inserción en la tabla de reservaciones";
+        }
+    } else {
+        echo "Error al realizar la inserción en la tabla de pasajeros";
+    }
+}
+?>
 
 
 
@@ -30,7 +75,7 @@
     </header>
     <main class="flex-grow container mx-auto">
         <h2 class="text-2xl font-bold py-2 px-4">Servicios adicionales</h2>
-        <form action="reservacion.php" method="post"
+        <form action="" method="post"
             class="flex flex-col bg-white shadow-lg rounded-md pl-4 pr-12 py-4 border border-gray-700">
             <article class="flex px-2">
                 <div class="ml-4 mr-14">
@@ -54,18 +99,9 @@
                 <div class="self-end">
                     <button type="submit" name="guardar" class="button-prymary ml-4 h-9">Siguiente</button>
                 </div>
-                <?php
-                require('../BD/conexion.php');
 
-                if (isset($_POST['guardar'])) {
-                    $noMaletaSeleccionado = $_POST['guardar'];
 
-                    // Insertar datos en la tabla "reservaciones"
-                    $insertarReservacion = "INSERT INTO reservaciones (fk_adicional) VALUES ('$noMaletaSeleccionado')";
-                    $queryReservacion = mysqli_query($conexion, $insertarReservacion);
-                }
 
-                ?>
             </article>
 
         </form>

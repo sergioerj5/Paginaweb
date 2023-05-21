@@ -27,49 +27,36 @@
         <h4 class="text-2xl font-bold text-sky-600">Completa los campos solicitodos a continuación.</h4>
         <form action="" method="post" class="bg-gray-300 p-2 rounded-md">
 
-            <?php
+        <?php
+		session_start();
 
-            session_start();
-            require('../BD/conexion.php');
-
-            // Verificar si se envió el formulario 2
-            if (isset($_POST['Nombre'])) {
-                // Recuperar los datos de la sesión
-                $paqueteSeleccionado = $_SESSION['paqueteSeleccionado'];
-                $nombre = $_POST['Nombre'];
-                $apellido = $_POST['Apellido'];
-                $email = $_POST['correocontacto'];
-                $fechanac = date("Y-m-d", strtotime($_POST['Fechanac']));
-                $tel = $_POST['Telefono'];
-                $telemer = $_POST['Telefonoemer'];
-
-                $folio = rand(1000, 9999); // Número aleatorio de 4 dígitos
-            
-                $valorPorDefecto = "1";
-                // Insertar en la tabla de pasajeros
-                $insertarPasajero = "INSERT INTO pasajeros (nombre, apellido, correo, fecha_nacimiento, numero_telefono, numero_accidentes, fk_tipo_pasajero) VALUES ('$nombre', '$apellido', '$email', '$fechanac', '$tel', '$telemer', '$valorPorDefecto')";
-                $queryPasajero = mysqli_query($conexion, $insertarPasajero);
-
-                if ($queryPasajero) {
-                    $idPasajero = mysqli_insert_id($conexion); // Obtener el pk del pasajero insertado
-            
-                    // Insertar en la tabla de reservaciones con el fk_tipo_paquete y fk_pasajero
-                    $insertarReservacion = "INSERT INTO reservaciones (fk_tipo_paquete, folio, fk_pasajero) VALUES ('$paqueteSeleccionado', '$folio', '$idPasajero')";
-                    $queryReservacion = mysqli_query($conexion, $insertarReservacion);
+		// Verificar si se envió el formulario 2
+		if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
-                    if ($queryReservacion) {
-                        // Redirigir a otra página o mostrar un mensaje de éxito
-                        header("Location: adicionales.php");
-                        exit;
-                    } else {
-                        echo "Error al realizar la inserción en la tabla de reservaciones";
-                    }
-                } else {
-                    echo "Error al realizar la inserción en la tabla de pasajeros";
-                }
-            }
-            ?>
+			// Guardar los datos en variables de sesión
+            $nombre = $_POST['Nombre'];
+            $apellido = $_POST['Apellido'];
+            $email = $_POST['correocontacto'];
+            $fechanac = date("Y-m-d", strtotime($_POST['Fechanac']));
+            $tel = $_POST['Telefono'];
+            $telemer = $_POST['Telefonoemer'];
+
+
+        // Guardar los datos en variables de sesión
+            $_SESSION['name'] = $nombre;
+            $_SESSION['ape'] = $apellido;
+            $_SESSION['correo'] = $email;
+            $_SESSION['fecha'] = $fechanac;
+            $_SESSION['tel'] = $tel;
+            $_SESSION['telemer'] = $telemer;
+
+
+			// Redirigir al formulario 3
+			header("Location: adicionales.php");
+			exit;
+		}
+		?>
             <section class="bg-white rounded-md shadow p-4 mx-2">
                 <h3 class="font-semibold">
                     Información personal
