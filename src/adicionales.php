@@ -32,10 +32,15 @@ if (isset($_POST['guardar'])) {
     $telemer = $_SESSION['telemer'];
     $noMaletaSeleccionado = $_POST['cantidad']; // Corregir el nombre del campo aquí
 
+    
 
     $folio = rand(1000, 9999); // Número aleatorio de 4 dígitos
+    $NoAsiento = rand(1, 92);
+    $metodoPAgo = rand(1, 4);
+    $valorPorDefecto = "1";     
+    $noTerminal = rand(1, 3);
+    $descuento = "1";     
 
-    $valorPorDefecto = "1";
     // Insertar en la tabla de pasajeros
     $insertarPasajero = "INSERT INTO pasajeros (nombre, apellido, correo, fecha_nacimiento, numero_telefono, numero_accidentes, fk_tipo_pasajero) VALUES ('$name', '$ape', '$correo', '$fecha', '$tel', '$telemer', '$valorPorDefecto')";
     $queryPasajero = mysqli_query($conexion, $insertarPasajero);
@@ -44,7 +49,7 @@ if (isset($_POST['guardar'])) {
         $idPasajero = mysqli_insert_id($conexion); // Obtener el pk del pasajero insertado
 
         // Insertar en la tabla de reservaciones con el fk_tipo_paquete y fk_pasajero
-        $insertarReservacion = "INSERT INTO reservaciones (fk_tipo_paquete, folio, fk_pasajero, fk_adicional) VALUES ('$paqueteSeleccionado', '$folio', '$idPasajero', '$noMaletaSeleccionado')";
+        $insertarReservacion = "INSERT INTO reservaciones (fk_tipo_paquete, folio, fk_pasajero, fk_descuento,fk_metodo_pago, fk_adicional, fk_asiento, fk_terminal) VALUES ('$paqueteSeleccionado', '$folio', '$idPasajero', '$descuento',' $metodoPAgo', '$noMaletaSeleccionado', '$NoAsiento', '$noTerminal')";
         $queryReservacion = mysqli_query($conexion, $insertarReservacion);
 
         if ($queryReservacion) {

@@ -37,12 +37,8 @@
 						<div class="flex items-center justify-center ">
 							<label for="origen" class="block font-bold mx-2">Lugar de salida</label>
 							<select name="ciudad-salida" id="ciudad-salida" data-te-select-init data-te-select-visible-options="8"
-								class="h-9 py-1 m-2 focus:outline-none focus:ring-0 focus:border-morado rounded-md"
-								>
-								
+								class="h-9 py-1 m-2 focus:outline-none focus:ring-0 focus:border-morado rounded-md">
 								<option value="5"selected>Villahermosa</option>
-		
-								
 							</select>
 
 							<label for="destino" class="block font-bold mx-2">Lugar de destino:</label>
@@ -82,8 +78,8 @@
 
 							<label for="fecha-salida mr-2" class="block font-bold mx-2">Fecha de salida:</label>
 							<input required type="date" id="fecha-salida" name="fecha-salida" class="rounded-md m-2">
-							<label for="fecha-salida mr-2" class="block font-bold mx-2">Fecha de llegada:</label>
-							<input required type="date" id="fecha-llegada" name="fecha-llegada" class="rounded-md m-2">
+							<!-- <label for="fecha-salida mr-2" class="block font-bold mx-2">Fecha de llegada:</label>
+							<input required type="date" id="fecha-llegada" name="fecha-llegada" class="rounded-md m-2"> -->
 						</div>
 					</div>
 					<div class="flex justify-center items-center">

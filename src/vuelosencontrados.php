@@ -14,15 +14,19 @@
 </head>
 
 <?php
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	// Los parámetros se están enviando mediante el método POST
 	$fechaSalida = $_POST['fecha-salida'];
-	$fechaLlegada = $_POST['fecha-llegada'];
+	
 	$ciudadSalida = $_POST['ciudad-salida'];
 	$ciudadDestino = $_POST['ciudad-destino'];
 	$tipodevuelo = $_POST['tipo-de-vuelo'];
+	
+
+
 	// Aquí puedes realizar las validaciones adicionales que necesites
-	if (empty($fechaSalida) || empty($fechaLlegada) || empty($ciudadSalida) || empty($ciudadDestino)) {
+	if (empty($fechaSalida)  || empty($ciudadSalida) || empty($ciudadDestino)) {
 		// Algunos parámetros están vacíos, muestra un mensaje de error
 		echo "Por favor, complete todos los campos.";
 	} else {
@@ -32,15 +36,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		require_once('../BD/conexion.php');
 		$query = "SELECT
 		vuelos.pk_vuelo AS pk_vuelo,
-	salida.ciudad AS salida,
-	destino.ciudad AS destino,
-	vuelos.fecha_salida AS fecha_salida,
-	vuelos.fecha_llegada AS fecha_llegada,
-	vuelos.`duración` AS `duración`,
-	horarios.hora_salida AS hora_salida,
-	horarios.hora_llegada AS hora_llegada,
-	tipos_vuelos.tipo,
-	horarios.pk_horario  
+		salida.ciudad AS salida,
+		destino.ciudad AS destino,
+		vuelos.fecha_salida AS fecha_salida,
+		-- vuelos.fecha_llegada AS fecha_llegada,
+		vuelos.`duración` AS `duración`,
+		horarios.hora_salida AS hora_salida,
+		horarios.hora_llegada AS hora_llegada,
+		tipos_vuelos.tipo,
+		horarios.pk_horario  
 	FROM
 	(
 		(
@@ -51,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	)
 	INNER JOIN tipos_vuelos ON vuelos.fk_tipo_vuelo = tipos_vuelos.pk_tipo_vuelo 
 WHERE
-	vuelos.fecha_llegada >= '$fechaLlegada' AND
+	
 	vuelos.fecha_salida >= '$fechaSalida' AND
 	horarios.fk_ciudad_destino ='$ciudadDestino'AND
 	horarios.fk_ciudad_salida = '$ciudadSalida' AND
@@ -78,7 +82,7 @@ WHERE
 		style="background-image: url('img/img2.jpg');">
 		<section class="flex  justify-center bg-cover w-full bg-center">
 
-		
+
 
 			<article
 				class="flex flex-col justify-center items-center backdrop-blur-sm bg-white/25 self-center w-full p-3 mt-2 rounded-md">
@@ -116,14 +120,13 @@ WHERE
 								<div class="mx-1" style="margin-right: 100px;">
 									<h3 class="text-base font-semibold">Fecha de salida</h3>
 									<p>' . $row['fecha_salida'] . '</p>
-									<h3 class="text-base font-semibold">Fecha de Regreso</h3>
-									<p>' . $row['fecha_llegada'] . '</p>
+									
 								</div>
 							</div>
 							<h3 class="text-xl text-lime-700 font-bold px-100 m-4">' . $row['tipo'] . '</h3>
 						</div>
 						<div class="mx-4" style="margin-right: 100px;">
-							<a class="button-prymary" href="combos.php?idVuelo=' . $row['pk_horario'] . '">Continuar</a>
+							<a class="button-prymary" href="combos.php' . $row['pk_horario'] . '">Continuar</a>
 						</div>
 					</section>
 					';
@@ -133,7 +136,9 @@ WHERE
 					echo "No se encontraron resultados.";
 				}
 
+
 				?>
+
 
 			</article>
 

@@ -101,40 +101,6 @@
                 <button type="submit" class="button-prymary  left-0 mr-4">Continuar</button>
 
             </div>
-            <?php
-            class Pasajeros
-            {
-
-                public $nombre;
-                public $apellido;
-                public $correo;
-                public $telefono;
-                public $telofonoEmer;
-                public $fecha_nac;
-
-                public function __construct($id, $nombre, $apellido, $telefono, $telefonoEmer, $correo, $fecha_nac)
-                {
-
-                    $this->Nombre = $nombre;
-                    $this->Apellido = $apellido;
-                    $this->Telefono = $telefono;
-                    $this->TelefonoEmer = $telefonoEmer;
-                    $this->correocontacto = $correo;
-                    $this->Fechanac = $fecha_nac;
-                }
-
-                public function insertarDatosAsesor($conexion)
-                {
-                    $query = "INSERT INTO pasajeros(nombre, apellido, correo, fecha_nacimiento, numero_telefono, numero_accidentes) 
-        VALUES ('$this->Nombre', '$this->Apellido', ' $this->correocontacto', '$this->Fechanac', '$this->Telefono', '$this->TelefonoEmer')";
-
-                    if ($conexion->query($query) === TRUE) {
-                        return TRUE;
-                    }
-                }
-            }
-
-            ?>
         </form>
     </main>
 </body>
