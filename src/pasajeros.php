@@ -34,14 +34,13 @@
 		if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
-			// Guardar los datos en variables de sesión
+			
             $nombre = $_POST['Nombre'];
             $apellido = $_POST['Apellido'];
             $email = $_POST['correocontacto'];
             $fechanac = date("Y-m-d", strtotime($_POST['Fechanac']));
             $tel = $_POST['Telefono'];
             $telemer = $_POST['Telefonoemer'];
-
 
         // Guardar los datos en variables de sesión
             $_SESSION['name'] = $nombre;
@@ -53,7 +52,7 @@
 
 
 			// Redirigir al formulario 3
-			header("Location: adicionales.php");
+			header("Location: adicionales.php?'");
 			exit;
 		}
 		?>

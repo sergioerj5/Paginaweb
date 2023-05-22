@@ -13,20 +13,21 @@
 	<title>Vuelos</title>
 </head>
 
+
 <?php
+
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	// Los parámetros se están enviando mediante el método POST
 	$fechaSalida = $_POST['fecha-salida'];
-	
 	$ciudadSalida = $_POST['ciudad-salida'];
 	$ciudadDestino = $_POST['ciudad-destino'];
 	$tipodevuelo = $_POST['tipo-de-vuelo'];
-	
+
 
 
 	// Aquí puedes realizar las validaciones adicionales que necesites
-	if (empty($fechaSalida)  || empty($ciudadSalida) || empty($ciudadDestino)) {
+	if (empty($fechaSalida) || empty($ciudadSalida) || empty($ciudadDestino)) {
 		// Algunos parámetros están vacíos, muestra un mensaje de error
 		echo "Por favor, complete todos los campos.";
 	} else {
@@ -94,6 +95,7 @@ WHERE
 			<article class="flex flex-col py-2 ">
 
 				<?php
+
 				// Verificar si la consulta devolvió resultados
 				if (mysqli_num_rows($resultados) > 0) {
 
@@ -121,12 +123,14 @@ WHERE
 									<h3 class="text-base font-semibold">Fecha de salida</h3>
 									<p>' . $row['fecha_salida'] . '</p>
 									
+									
+
 								</div>
 							</div>
 							<h3 class="text-xl text-lime-700 font-bold px-100 m-4">' . $row['tipo'] . '</h3>
 						</div>
 						<div class="mx-4" style="margin-right: 100px;">
-							<a class="button-prymary" href="combos.php' . $row['pk_horario'] . '">Continuar</a>
+							<a class="button-prymary" href="combos.php?pkHorario=' . $row['pk_horario'] . '">Continuar</a>
 						</div>
 					</section>
 					';
@@ -137,7 +141,11 @@ WHERE
 				}
 
 
+
 				?>
+
+
+
 
 
 			</article>

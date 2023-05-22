@@ -11,6 +11,8 @@
 </head>
 
 
+
+
 <body class="flex flex-col min-h-screen ">
 	<header class="flex flex-row p-4 max-w-screen justify-between items-center backdrop-blur-xl bg-white/25">
 		<nav class="flex ml-12 ">
@@ -48,6 +50,9 @@
 					<?php
 					//  echo '<a href="pasajeros.php?idvuelo=' . $idvuelo . '&paquete=1" class="text-lg text-right button-prymary">Continuar con Zero</a>';
 					?>
+
+
+
 					<?php
 					session_start();
 
@@ -59,7 +64,32 @@
 						// Redirigir al formulario 2
 						header("Location: pasajeros.php");
 						exit;
+
 					}
+
+					?>
+					<?php
+					require('../BD/conexion.php');
+
+					if (isset($_GET['pkHorario'])) {
+						$pk_Horario = $_GET['pkHorario'];
+
+						$query = "SELECT reservaciones.pk_reservacion FROM reservaciones 
+						ORDER BY
+						reservaciones.pk_reservacion DESC";
+
+						$consulta = mysqli_query($conexion, $query);
+						$user = mysqli_fetch_assoc($consulta);
+						$id = $user['pk_reservacion'] + 1;
+
+						$query2 = "INSERT INTO reservaciones (pk_reservacion, fk_horario) VALUES ('$id', '$pk_Horario')";
+						$queryReservacion = mysqli_query($conexion, $query2);
+
+
+					} else {
+						echo "No se ha realizado la inserción";
+					}
+
 					?>
 					<form action="" method="POST">
 						<button type="submit" name="paquete" value="1"
@@ -93,7 +123,7 @@
 				<div class="self-end mb-2">
 					<h4 class="text-2xl font-bold text-orange-500 text-right w-full my-2">+300$</h4>
 					<?php
-					// echo '<a href="pasajeros.php?idvuelo=' . $idvuelo . '&paquete=2" class="text-lg text-right button-prymary">Continuar con Light</a>';
+					//   echo '<a href="pasajeros.php?pk_horario=' . $idvuelo . '&paquete=2" class="text-lg text-right button-prymary">Continuar con Light</a>';
 					?>
 					<form action="" method="POST">
 						<button type="submit" name="paquete" value="2"

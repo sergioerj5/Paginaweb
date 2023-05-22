@@ -14,6 +14,7 @@
 		}
 	</style>
 </head>
+
 <?php
 
 ?>
@@ -23,14 +24,7 @@
 session_start();
 
 require_once('../BD/conexion.php');
-session_start();
-if (isset($_SESSION['pk_vuelo'])) {
-    $pk_vuelo = $_SESSION['pk_vuelo'];
-    // Puedes utilizar la variable $pk_vuelo para realizar consultas o acciones adicionales
-} else {
-    // El valor de pk_vuelo no está disponible en la sesión
-    echo "Error: El valor de pk_vuelo no está disponible en la sesión.";
-}
+
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	// Los parámetros se están enviando mediante el método POST
@@ -135,7 +129,7 @@ if (empty($fechaSalida) || empty($fechaLlegada) || empty($ciudadSalida) || empty
 	<section class="flex  justify-center bg-cover w-full bg-center">
 		<article
 			class="flex flex-col justify-center items-center backdrop-blur-sm bg-white/25 self-center w-full p-3 mt-2 rounded-md">
-			<a href="" class="button-prymary">Regresar</a>
+			<a href="index.php" class="button-prymary" >Regresar</a>
 		</article>
 	</section>
 
@@ -143,10 +137,13 @@ if (empty($fechaSalida) || empty($fechaLlegada) || empty($ciudadSalida) || empty
 		<article class="flex flex-col py-2 ">
 			<?php
 			// El código de impresión de datos se mueve dentro de este bloque
+			$queryReservacion = "SELECT * FROM pasajeros";
+			
+
 			?>
 		</article>
 	</section>
-
+	
 </main>
 
 </body>
