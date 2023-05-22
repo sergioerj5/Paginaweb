@@ -57,11 +57,12 @@ if (isset($_POST['guardar'])) {
         $id = $user['pk_reservacion'] ;
 
         // Insertar en la tabla de reservaciones con el fk_tipo_paquete y fk_pasajero
-        $insertarReservacion = "INSERT INTO reservaciones (fk_tipo_paquete, folio, fk_pasajero, fk_descuento,fk_metodo_pago, fk_adicional, fk_asiento, fk_terminal) VALUES ('$paqueteSeleccionado', '$folio', '$idPasajero', '$descuento',' $metodoPAgo', '$noMaletaSeleccionado', '$NoAsiento', '$noTerminal')";
-        $queryReservacion = mysqli_query($conexion, $insertarReservacion);
+        // $insertarReservacion = "INSERT INTO reservaciones (fk_tipo_paquete, folio, fk_pasajero, fk_descuento,fk_metodo_pago, fk_adicional, fk_asiento, fk_terminal) VALUES ('$paqueteSeleccionado', '$folio', '$idPasajero', '$descuento','$metodoPAgo', '$noMaletaSeleccionado', '$NoAsiento', '$noTerminal')";
+        // $queryReservacion = mysqli_query($conexion, $insertarReservacion);
 
-        
 
+        $UpdateReservacion = "UPDATE reservaciones SET fk_tipo_paquete = '$paqueteSeleccionado', folio = '$folio', fk_pasajero = '$idPasajero', fk_descuento = '$descuento',fk_metodo_pago = '$metodoPAgo', fk_adicional= '$noMaletaSeleccionado', fk_asiento = '$NoAsiento', fk_terminal = '$noTerminal' WHERE pk_reservacion = $id";
+        $queryReservacion = mysqli_query($conexion, $UpdateReservacion);
 
         if ($queryReservacion) {
             $idReservacion = mysqli_insert_id($conexion); // Obtener el pk de la reservación insertada
@@ -77,8 +78,6 @@ if (isset($_POST['guardar'])) {
     }
 }
 ?>
-
-
 
 <body class="flex flex-col min-h-screen">
     <header class="flex flex-row p-4 max-w-screen justify-between items-center ">
@@ -110,14 +109,10 @@ if (isset($_POST['guardar'])) {
                         <option value="2">2 maleta extra($700)</option>
                         <option value="3">3 maleta extra($1000)</option>
                     </select>
-
                 </div>
                 <div class="self-end">
                     <button type="submit" name="guardar" class="button-prymary ml-4 h-9">Siguiente</button>
                 </div>
-
-
-
             </article>
 
         </form>
