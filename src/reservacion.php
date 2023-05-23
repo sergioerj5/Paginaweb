@@ -73,34 +73,49 @@
 				$resultados = mysqli_query($conexion, $query);
 								
 				while ($row = mysqli_fetch_assoc($resultados)) {
+					echo '<h1 class="flex items-center justify-between bg-red-500 rounded-md shadow-md hover:shadow-xl w-full h-fit my-5">';
+					echo '<span class="text-3xl font-bold">Datos del usuario</span>';
+					echo '</h1>';
 					
-					echo '<h1 class="flex items-center justify-between bg-amber-200 rounded-md shadow-md hover:shadow-xl w-full h-fit my-5">Datos del usuario</h1>';
-					echo '<section class="flex items-center justify-between bg-white rounded-md shadow-md hover:shadow-xl w-full h-fit my-5">
-
-					
-						<div class="flex items-center" style="background-color: rgba(255, 255, 255, 0.25);">
-						
+					echo '<section class="flex items-center justify-start h-fit my-5 px-4">
+						<div class="flex items-center w-[90%] mx-auto" style="background-color: rgba(255, 255, 255, 0.25);">
 							<div class="flex p-4" style="margin-right: 10px;">
-								<h4 class="text-xl text-lime-700 font-bold px-2 m-4">' . $row['pk_reservacion'] . '</h4> 
-								<h4 class="text-xl text-lime-700 font-bold px-2 m-4">' . $row['folio'] . '</h4> 
-								<h4 class="text-xl text-lime-700 font-bold px-2 m-4">' . $row['nombre'] . '</h4> 
-								<h4 class="text-xl text-lime-700 font-bold px-2 m-4">' . $row['apellido'] . '</h4> 
-								<h4 class="text-xl text-lime-700 font-bold px-2 m-4">' . $row['hora_salida'] . '</h4> 
-								<h4 class="text-xl text-lime-700 font-bold px-2 m-4">' . $row['hora_llegada'] . '</h4> 
-								<h4 class="text-xl text-lime-700 font-bold px-2 m-4">' . $row['ciudad_salida'] . '</h4> 
-								<h4 class="text-xl text-lime-700 font-bold px-2 m-4">' . $row['duración'] . '</h4> 
-								<h4 class="text-xl text-lime-700 font-bold px-2 m-4">' . $row['ciudad_destino'] . '</h4>
-								<h4 class="text-xl text-lime-700 font-bold px-2 m-4">' . $row['tipo'] . '</h4> 
-								<h4 class="text-xl text-lime-700 font-bold px-2 m-4">' . $row['costoTipo'] . '</h4> 
-								<h4 class="text-xl text-lime-700 font-bold px-2 m-4">' . $row['NoAsiento'] . '</h4> 
-								<h4 class="text-xl text-lime-700 font-bold px-2 m-4">' . $row['MaletasExtra'] . '</h4> 
-								<h4 class="text-xl text-lime-700 font-bold px-2 m-4">' . $row['costo'] . '</h4> 
+								<div>
+									<h1 class="text-2xl text-lime-700 font-bold px-1 m-4">Datos del pasajero</h1>
+									<h4 class="text-xl text-black font-bold px-2 m-4">' .'ID_RESERVACIÓN: '. $row['pk_reservacion'] . '</h4> 
+									<h4 class="text-xl text-black font-bold px-2 m-4">' .'Folio de la reservación: '.$row['folio'] . '</h4>
+									<h4 class="text-xl text-black font-bold px-2 m-4">' .'Nombre: '. $row['nombre'] . '</h4> 
+									<h4 class="text-xl text-black font-bold px-2 m-4">' .'Apellido: '. $row['apellido'] . '</h4>
+									
+									<h1 class="text-2xl text-lime-700 font-bold px-1 m-4">Datos del Vuelo</h1> 
+									<h4 class="text-xl text-black font-bold px-2 m-4">' .'Hora de salida: '. $row['hora_salida'] . '</h4> 
+									<h4 class="text-xl text-black font-bold px-2 m-4">' .'Hora de llegada: '. $row['hora_llegada'] . '</h4> 
+									<h4 class="text-xl text-black font-bold px-2 m-4">' .'Ciudad de salida: '.$row['ciudad_salida'] . '</h4> 
+									<h4 class="text-xl text-black font-bold px-2 m-4">' .'Duración del vuelo: '. $row['duración'] . '</h4> 
+									<h4 class="text-xl text-black font-bold px-2 m-4">' .'Ciudad de destino: '. $row['ciudad_destino'] . '</h4>
+									<h4 class="text-xl text-black font-bold px-2 m-4">' .'Tipo de paquete: '. $row['tipo'] . '</h4> 
+									<h4 class="text-xl text-black font-bold px-2 m-4">' .'Costo: '. $row['costoTipo'] . '</h4> 
+									<h4 class="text-xl text-black font-bold px-2 m-4">' .'Número de asiento: '. $row['NoAsiento'] . '</h4> 
+									<h4 class="text-xl text-black font-bold px-2 m-4">' .'Número de maletas extra: '. $row['MaletasExtra'] . '</h4> 
+									<h4 class="text-xl text-black font-bold px-2 m-4">' .'Costo por maletas extra: '. $row['costo'] . '</h4> 
+								</div>
+								
+								<div>
+									
+								</div>
+								
 							</div>
-					
 						</div>
 					</section>';
 				}
+				
+				
+				
+				
+				
+				
 				?>
+				
 			</article>
 		</section>
 	</main>
