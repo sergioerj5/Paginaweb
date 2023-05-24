@@ -9,6 +9,8 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
 		integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
 		crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<link rel="stylesheet" type="text/css" href="style.css">
+	
 	<!-- <link rel="stylesheet" href="../estilos.css"> -->
 	<title>Vuelos</title>
 </head>
@@ -69,21 +71,21 @@ WHERE
 	echo "Error: Los parámetros deben enviarse mediante el método POST.";
 }
 
-
 ?>
 
 <body class="flex flex-col min-h-screen ">
-	<header class="flex flex-row p-4 max-w-screen justify-between items-center backdrop-blur-xl bg-white/25">
-		<nav class="flex ml-12 ">
-			<a href="index.php" class="a-primary">Inicio</a>
-			<a href="./paginas/Atencion.html" class="a-primary">Atencion al Cliente</a>
+	<header>
+		<nav class="main-nav">
+			<ul class="lista">
+				<li><a href="index.php">Destino</a></li>
+				<li><a href="./paginas/Atencion.html">¿Quienes somos?</a></li>
+				<li><a href="./paginas/Atencion.html" class="a-primary">Atencion al Cliente</a></li>
+			</ul>
 		</nav>
 	</header>
 	<main class="flex-grow bg-cover bg-center  items-center justify-center "
 		style="background-image: url('img/img2.jpg');">
 		<section class="flex  justify-center bg-cover w-full bg-center">
-
-
 
 			<article
 				class="flex flex-col justify-center items-center backdrop-blur-sm bg-white/25 self-center w-full p-3 mt-2 rounded-md">
@@ -95,7 +97,6 @@ WHERE
 			<article class="flex flex-col py-2 ">
 
 				<?php
-
 				// Verificar si la consulta devolvió resultados
 				if (mysqli_num_rows($resultados) > 0) {
 

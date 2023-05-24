@@ -6,7 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="../dist/output.css" rel="stylesheet">
-	<!-- <link rel="stylesheet" href="../estilos.css"> -->
+	<link rel="stylesheet" type="text/css" href="style.css">
 	<title>Combo</title>
 </head>
 
@@ -14,14 +14,15 @@
 
 
 <body class="flex flex-col min-h-screen ">
-	<header class="flex flex-row p-4 max-w-screen justify-between items-center backdrop-blur-xl bg-white/25">
-		<nav class="flex ml-12 ">
-			<a href="index.php" class="a-primary">Inicio</a>
-			<a href="Secondpage.php" class="a-primary">Destino</a>
-			<a href="./paginas/somo.html" class="a-primary">¿Quienes somos?</a>
-			<a href="./paginas/Atencion.html" class="a-primary">Atencion al Cliente</a>
-		</nav>
-	</header>
+<header>
+        <nav class="main-nav">
+            <ul class="lista">
+                <li><a href="index.php">Destino</a></li>
+                <li><a href="./paginas/Atencion.html">¿Quienes somos?</a></li>
+                <li><a href="./paginas/Atencion.html" class="a-primary">Atencion al Cliente</a></li>
+            </ul>
+        </nav>
+    </header>
 	<main class="flex-grow ">
 
 		<h1 class=" font-extrabold text-center text-5xl ">Elije tu forma de viajar</h1>

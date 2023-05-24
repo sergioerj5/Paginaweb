@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../dist/output.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
     <!-- <link rel="stylesheet" href="../estilos.css"> -->
     <title>Pasajeros</title>
 </head>
@@ -13,49 +14,53 @@
 
 
 <body class="flex flex-col min-h-screen ">
-    <header class="flex flex-row p-4 max-w-screen justify-between items-center backdrop-blur-xl bg-white/25">
-        <nav class="flex ml-12 ">
-            <a href="index.php" class="a-primary">Inicio</a>
-            <a href="Secondpage.php" class="a-primary">Destino</a>
-            <a href="./paginas/somo.html" class="a-primary">¿Quienes somos?</a>
-            <a href="./paginas/Atencion.html" class="a-primary">Atencion al Cliente</a>
+    <header>
+        <nav class="main-nav">
+            <ul class="lista">
+                <li><a href="index.php">Destino</a></li>
+                <li><a href="./paginas/Atencion.html">¿Quienes somos?</a></li>
+                <li><a href="./paginas/Atencion.html" class="a-primary">Atencion al Cliente</a></li>
+            </ul>
         </nav>
+
+
     </header>
+
 
     <main class="flex-grow container mx-auto">
         <h3 class="text-4xl font-extrabold ">Información de pasajeros</h3>
         <h4 class="text-2xl font-bold text-sky-600">Completa los campos solicitodos a continuación.</h4>
         <form action="" method="post" class="bg-gray-300 p-2 rounded-md">
 
-        <?php
-		session_start();
+            <?php
+            session_start();
 
-		// Verificar si se envió el formulario 2
-		if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-
-			
-            $nombre = $_POST['Nombre'];
-            $apellido = $_POST['Apellido'];
-            $email = $_POST['correocontacto'];
-            $fechanac = date("Y-m-d", strtotime($_POST['Fechanac']));
-            $tel = $_POST['Telefono'];
-            $telemer = $_POST['Telefonoemer'];
-
-        // Guardar los datos en variables de sesión
-            $_SESSION['name'] = $nombre;
-            $_SESSION['ape'] = $apellido;
-            $_SESSION['correo'] = $email;
-            $_SESSION['fecha'] = $fechanac;
-            $_SESSION['tel'] = $tel;
-            $_SESSION['telemer'] = $telemer;
+            // Verificar si se envió el formulario 2
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
-			// Redirigir al formulario 3
-			header("Location: adicionales.php?'");
-			exit;
-		}
-		?>
+
+                $nombre = $_POST['Nombre'];
+                $apellido = $_POST['Apellido'];
+                $email = $_POST['correocontacto'];
+                $fechanac = date("Y-m-d", strtotime($_POST['Fechanac']));
+                $tel = $_POST['Telefono'];
+                $telemer = $_POST['Telefonoemer'];
+
+                // Guardar los datos en variables de sesión
+                $_SESSION['name'] = $nombre;
+                $_SESSION['ape'] = $apellido;
+                $_SESSION['correo'] = $email;
+                $_SESSION['fecha'] = $fechanac;
+                $_SESSION['tel'] = $tel;
+                $_SESSION['telemer'] = $telemer;
+
+
+                // Redirigir al formulario 3
+                header("Location: adicionales.php?'");
+                exit;
+            }
+            ?>
             <section class="bg-white rounded-md shadow p-4 mx-2">
                 <h3 class="font-semibold">
                     Información personal

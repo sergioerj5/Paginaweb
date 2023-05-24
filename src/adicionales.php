@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../dist/output.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+	
 
     <!-- <link rel="stylesheet" href="../estilos.css"> -->
     <title>Adicionales</title>
@@ -56,10 +58,6 @@ if (isset($_POST['guardar'])) {
         $user = mysqli_fetch_assoc($consulta);
         $id = $user['pk_reservacion'] ;
 
-        // Insertar en la tabla de reservaciones con el fk_tipo_paquete y fk_pasajero
-        // $insertarReservacion = "INSERT INTO reservaciones (fk_tipo_paquete, folio, fk_pasajero, fk_descuento,fk_metodo_pago, fk_adicional, fk_asiento, fk_terminal) VALUES ('$paqueteSeleccionado', '$folio', '$idPasajero', '$descuento','$metodoPAgo', '$noMaletaSeleccionado', '$NoAsiento', '$noTerminal')";
-        // $queryReservacion = mysqli_query($conexion, $insertarReservacion);
-
 
         $UpdateReservacion = "UPDATE reservaciones SET fk_tipo_paquete = '$paqueteSeleccionado', folio = '$folio', fk_pasajero = '$idPasajero', fk_descuento = '$descuento',fk_metodo_pago = '$metodoPAgo', fk_adicional= '$noMaletaSeleccionado', fk_asiento = '$NoAsiento', fk_terminal = '$noTerminal' WHERE pk_reservacion = $id";
         $queryReservacion = mysqli_query($conexion, $UpdateReservacion);
@@ -80,14 +78,17 @@ if (isset($_POST['guardar'])) {
 ?>
 
 <body class="flex flex-col min-h-screen">
-    <header class="flex flex-row p-4 max-w-screen justify-between items-center ">
-        <nav class="flex ml-12 ">
-            <a href="index.php" class="a-primary">Inicio</a>
-            <a href="Secondpage.php" class="a-primary">Destino</a>
-            <a href="./paginas/somo.html" class="a-primary">¿Quienes somos?</a>
-            <a href="./paginas/Atencion.html" class="a-primary">Atencion al Cliente</a>
-        </nav>
-    </header>
+<header>
+		<nav class="main-nav">
+			<ul class="lista">
+				<li><a href="index.php" >Destino</a></li>
+				<li><a href="./paginas/Atencion.html" >¿Quienes somos?</a></li>
+                <li><a href="./paginas/Atencion.html" class="a-primary">Atencion al Cliente</a></li>
+			</ul>
+		</nav>
+
+
+	</header>
     <main class="flex-grow container mx-auto">
         <h2 class="text-2xl font-bold py-2 px-4">Servicios adicionales</h2>
         <form action="" method="post"
